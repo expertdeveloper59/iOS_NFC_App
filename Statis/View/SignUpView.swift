@@ -40,12 +40,12 @@ struct SignUpView: View {
                         CustomTextField(placeHolderText: "Phone Number",
                                       text: $viewModel.phoneNumber, symbolName: "phone.fill")
                         CustomTextField(placeHolderText: "Username",
-                                      text: $viewModel.fullName, symbolName: "person.fill")
+                                      text: $viewModel.username, symbolName: "person.fill")
                         CustomTextField(placeHolderText: "Password",
                                       text: $viewModel.password,
                                       isPasswordType: true, symbolName: "lock.fill")
                         CustomTextField(placeHolderText: "Confirm Password",
-                                      text: $viewModel.password,
+                                      text: $viewModel.confirmPassword,
                                       isPasswordType: true, symbolName: "lock.fill")
                     }.padding(.horizontal, 25)
                     
