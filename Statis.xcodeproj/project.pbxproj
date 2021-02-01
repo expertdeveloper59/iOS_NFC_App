@@ -33,6 +33,8 @@
 		F75BDB8E25C715E0002CE741 /* SignupBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDB8D25C715E0002CE741 /* SignupBG.swift */; };
 		F75BDB9625C73AFA002CE741 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */; };
 		F7BB88B325C8275A0077F5ED /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */; };
+		F7BB88B725C82AF60077F5ED /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B625C82AF60077F5ED /* OTPView.swift */; };
+		F7BB88BA25C82D510077F5ED /* PasscodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B925C82D510077F5ED /* PasscodeField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		F75BDB8D25C715E0002CE741 /* SignupBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBG.swift; sourceTree = "<group>"; };
 		F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
+		F7BB88B625C82AF60077F5ED /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		F7BB88B925C82D510077F5ED /* PasscodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 				F75BDB8C25C715C5002CE741 /* Backgrounds */,
 				30F0AF9124E976410084CE6E /* SplashView.swift */,
 				30D8C60124E818D300CB0858 /* SignUpView.swift */,
+				F7BB88B625C82AF60077F5ED /* OTPView.swift */,
 				30127DCE24DE506300576F65 /* SignInView.swift */,
 				F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */,
 				30D8C5EC24E7755600CB0858 /* WelcomeView.swift */,
@@ -176,6 +181,7 @@
 				30D8C5F024E77CFB00CB0858 /* UIConfiguration.swift */,
 				30D8C5F224E77DDE00CB0858 /* UIColorExt.swift */,
 				30DDE0C024EC2AD300208D32 /* AppState.swift */,
+				F7BB88B925C82D510077F5ED /* PasscodeField.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -350,6 +356,8 @@
 				30127DCD24DE506300576F65 /* SceneDelegate.swift in Sources */,
 				30D8C5F124E77CFB00CB0858 /* UIConfiguration.swift in Sources */,
 				F75BDB8E25C715E0002CE741 /* SignupBG.swift in Sources */,
+				F7BB88BA25C82D510077F5ED /* PasscodeField.swift in Sources */,
+				F7BB88B725C82AF60077F5ED /* OTPView.swift in Sources */,
 				30127DCF24DE506300576F65 /* SignInView.swift in Sources */,
 				30F0AF9824E9868D0084CE6E /* SignInViewModel.swift in Sources */,
 				30F0AF9B24E989020084CE6E /* CustomTextField.swift in Sources */,

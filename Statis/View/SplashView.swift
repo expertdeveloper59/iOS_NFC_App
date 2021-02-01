@@ -1,4 +1,4 @@
-//
+
 //  SplashView.swift
 //  Statis
 //
@@ -14,9 +14,9 @@ struct SplashView: View {
     var body: some View {
         VStack {
             if self.isActive {
-//                WelcomeView(state: state)
-                EmailVerificationView(state: state)
-//                SignInView(state: state)
+//                PasscodeField()
+//                CustomNumberPad()
+                OTPView(state: state)
             } else {
                 ZStack {
                     Color(UIConfiguration.tintColor)
