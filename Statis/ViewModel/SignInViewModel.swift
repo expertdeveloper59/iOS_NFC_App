@@ -34,8 +34,25 @@ class SignInViewModel: ObservableObject {
             .store(in: &cancellableBag)
     }
     
+    func verifyEmail() {
+        authAPI.verifyEmail(email: email)
+            .receive(on: RunLoop.main)
+            .map(verifResultMapper)
+            .assign(to: \.statusViewModel, on: self)
+            .store(in: &cancellableBag)
+    }
+    
     func facebookLogin() {
         authAPI.loginWithFacebook()
+            .receive(on: RunLoop.main)
+            .map(resultMapper)
+            .replaceError(with: StatusViewModel.errorStatus)
+            .assign(to: \.statusViewModel, on: self)
+            .store(in: &cancellableBag)
+    }
+    
+    func googleLogin() {
+        authAPI.loginWithGoogle()
             .receive(on: RunLoop.main)
             .map(resultMapper)
             .replaceError(with: StatusViewModel.errorStatus)
@@ -49,6 +66,15 @@ extension SignInViewModel {
     private func resultMapper(with user: User?) -> StatusViewModel {
         if user != nil {
             state.currentUser = user
+            return StatusViewModel.logInSuccessStatus
+        } else {
+            return StatusViewModel.errorStatus
+        }
+    }
+    
+    private func verifResultMapper(with bool: Bool?) -> StatusViewModel {
+        if bool != false {
+//            state.currentUser = user
             return StatusViewModel.logInSuccessStatus
         } else {
             return StatusViewModel.errorStatus

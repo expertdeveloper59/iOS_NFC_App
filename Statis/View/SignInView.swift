@@ -11,87 +11,117 @@ import Combine
 import FBSDKCoreKit
 import FBSDKLoginKit
 import FirebaseAuth
+import GoogleSignIn
 
 struct SignInView: View {
     @State var pushActive = false
+    @State var homeActive = false
     @ObservedObject private var viewModel: SignInViewModel
+    @State var sheetPresented = false
+    @State var user = Auth.auth().currentUser
     
     private var screenSize = UIScreen.main.bounds
+    let appState: AppState
     
     init(state: AppState) {
+        appState = state
         self.viewModel = SignInViewModel(authAPI: AuthService(), state: state)
     }
     
     var body: some View {
-        VStack {
-            NavigationLink(destination: HomeView(state: viewModel.state),
-                           isActive: self.$pushActive) {
-              EmptyView()
-            }.hidden()
-            VStack(alignment: .leading, spacing: 30) {
+        NavigationView {
+            VStack {
+                NavigationLink(destination: SignUpView(state: viewModel.state),
+                               isActive: self.$pushActive) {
+                    EmptyView()
+                }.navigationBarHidden(true)
                 
-                Spacer().frame(width: 100, height: screenSize.height/7, alignment: .center)
-                VStack(alignment: .center, spacing: 30) {
-                    Text("SIGN IN")
-                        .font(.custom("Futura", size: 28))
-                        .foregroundColor(.white)
-                    VStack(alignment: .center, spacing: 25) {
-                        CustomTextField(placeHolderText: "E-mail",
-                                        text: $viewModel.email, symbolName: "envelope.fill")
-                        CustomTextField(placeHolderText: "Password",
-                                      text: $viewModel.password,
-                                      isPasswordType: true, symbolName: "lock.fill")
-                        HStack {
-                            Spacer()
-                            Button("Forgot Password?") {
-                                print("Forgot Password")
-                            }
+                    NavigationLink(destination: HomeView(state: viewModel.state),
+                                   isActive: self.$homeActive) {
+                        EmptyView()
+                    }.navigationBarHidden(true)
+                VStack(alignment: .leading, spacing: 30) {
+                    Spacer().frame(width: 100, height: screenSize.height/7, alignment: .center)
+                    VStack(alignment: .center, spacing: 30) {
+                        Text("SIGN IN")
+                            .font(.custom("Futura", size: 28))
                             .foregroundColor(.white)
-                        }
-                    }.padding(.horizontal, 25)
-                    
-                    VStack(alignment: .center, spacing: 40) {
-                        customButton(title: "SIGN IN",
-                                     backgroundColor: UIConfiguration.tintColor,
-                                     action: { self.viewModel.login() })
-                        Text("OR")
-//                        customButton(title: "Facebook Login",
-//                                     backgroundColor: UIColor(hexString: "#334D92"),
-//                                     action: { self.viewModel.facebookLogin() })
-                        HStack(spacing: 20) {
-                            Button(action: {}, label: {
-                                SocialButton(iconName: "heart.fill", iconColor: .red, backgroundColor: .white)
-                            })
-                            Button(action: {
-                                self.viewModel.facebookLogin()
-                            }, label: {
-                                SocialButton(iconName: "heart.fill", iconColor: .white, backgroundColor: .blue)
-                            })
+                        VStack(alignment: .center, spacing: 25) {
+                            CustomTextField(placeHolderText: "E-mail",
+                                            text: $viewModel.email, symbolName: "envelope.fill")
+                            CustomTextField(placeHolderText: "Password",
+                                            text: $viewModel.password,
+                                            isPasswordType: true, symbolName: "lock.fill")
+                            HStack {
+                                Spacer()
+                                Button("Forgot Password?") {
+                                    self.sheetPresented = true
+                                }
+                                .foregroundColor(.white)
+                            }
+                        }.padding(.horizontal, 25)
+                        
+                        VStack(alignment: .center, spacing: 40) {
+                            customButton(title: "SIGN IN",
+                                         backgroundColor: UIConfiguration.tintColor,
+                                         action: { self.viewModel.login() })
+                            Text("OR")
+                            //                        customButton(title: "Facebook Login",
+                            //                                     backgroundColor: UIColor(hexString: "#334D92"),
+                            //                                     action: { self.viewModel.facebookLogin() })
+                            HStack(spacing: 20) {
+                                Button(action: {self.viewModel.facebookLogin()}, label: {
+                                    SocialButton(iconName: "heart.fill", iconColor: .red, backgroundColor: .white)
+                                })
+                                Button(action: {
+                                    GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
+                                    
+                                    GIDSignIn.sharedInstance()?.signIn()
+                                }, label: {
+                                    SocialButton(iconName: "bold", iconColor: .white, backgroundColor: .blue)
+                                })
+                            }
                         }
                     }
                 }
-            }
-            Spacer()
-            VStack {
-                Text("sign ?")
-                    .font(.custom("Futura", size: 28))
-                    .foregroundColor(.white)
-                Text("Sign up")
-                    .font(.custom("Futura", size: 28))
-                    .foregroundColor(.white)
-            }
-            .edgesIgnoringSafeArea(.all)
-            .background(Arc().foregroundColor(Color.white))
-        }.alert(item: self.$viewModel.statusViewModel) { status in
-            Alert(title: Text(status.title),
-                  message: Text(status.message),
-                  dismissButton: .default(Text("OK"), action: {
-                    if status.title == "Successful" {
+                Spacer()
+                VStack {
+                    Text("Don't have an account?")
+                        .font(.custom("Futura", size: 28))
+                        .foregroundColor(.white)
+                    Button("SIGN UP") {
                         self.pushActive = true
                     }
-                  }))
+                    .autocapitalization(.allCharacters)
+                    .font(.custom("Futura", size: 28))
+                    .foregroundColor(Color("AppGreen"))
+                }
+                .edgesIgnoringSafeArea(.all)
+                .background(Arc().foregroundColor(Color.white))
+            }.alert(item: self.$viewModel.statusViewModel) { status in
+                Alert(title: Text(status.title),
+                      message: Text(status.message),
+                      dismissButton: .default(Text("OK"), action: {
+                        if status.title == "Successful" {
+                            self.homeActive = true
+                        }
+                      }))
+            }
+            .background(SignupBG())
+            .sheet(isPresented: $sheetPresented) {
+                EmailVerificationView(state: appState)
+            }
         }
-        .background(SignupBG())
+        .onAppear {
+            
+            NotificationCenter.default.addObserver(forName: NSNotification.Name("SIGNIN"), object: nil, queue: .main) { (_) in
+                
+                // Updating User..
+                
+                self.user = Auth.auth().currentUser
+                self.homeActive = true
+            }
+        }
     }
     
     private func customButton(title: String,
@@ -124,7 +154,7 @@ struct SocialButton: View {
 
 struct Arc: Shape {
     var screenSize = UIScreen.main.bounds
-
+    
     func path(in rect: CGRect) -> Path {
         var path = Path()
         path.addArc(center: CGPoint(x: screenSize.width/8, y: screenSize.height/1.7), radius: 530, startAngle: .degrees(0), endAngle: .degrees(90), clockwise: true)

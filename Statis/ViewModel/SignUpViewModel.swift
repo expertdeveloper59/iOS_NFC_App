@@ -28,12 +28,22 @@ class SignUpViewModel: ObservableObject {
     }
     
     func signUp() {
-        authAPI.signUp(email: email, password: password)
-            .receive(on: RunLoop.main)
-            .map(resultMapper)
-            .replaceError(with: StatusViewModel.errorStatus)
-            .assign(to: \.statusViewModel, on: self)
-            .store(in: &cancellableBag)
+        if password == confirmPassword {
+            authAPI.signUp(email: email, password: password)
+                .receive(on: RunLoop.main)
+                .map(resultMapper)
+                .replaceError(with: StatusViewModel.errorStatus)
+                .assign(to: \.statusViewModel, on: self)
+                .store(in: &cancellableBag)
+        } else {
+            authAPI.signUp(email: "email", password: "password")
+                .receive(on: RunLoop.main)
+                .map(resultMapper)
+                .replaceError(with: StatusViewModel.validationStatus)
+                .assign(to: \.statusViewModel, on: self)
+                .store(in: &cancellableBag)
+        }
+        
     }
 }
 

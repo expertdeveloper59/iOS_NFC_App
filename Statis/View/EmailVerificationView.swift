@@ -46,7 +46,7 @@ struct EmailVerificationView: View {
                 VStack(alignment: .center, spacing: 40) {
                     customButton(title: "SEND",
                                  backgroundColor: UIConfiguration.tintColor,
-                                 action: { self.viewModel.login() })
+                                 action: { self.viewModel.verifyEmail() })
                 }
             }
             

@@ -12,22 +12,23 @@ import UIKit
 struct PasscodeField: View {
     @State private var numberOfCells: Int = 4
     @State private var currentlySelectedCell = 0
-    @Binding var resetCode: String
+    @Binding var originalText: String
 
     var body: some View {
         HStack {
             ForEach(0 ..< self.numberOfCells) { index in
-                CharacterInputCell(textValue: $resetCode, currentlySelectedCell: self.$currentlySelectedCell, index: index)
+                CharacterInputCell(currentlySelectedCell: self.$currentlySelectedCell, originalText: $originalText, index: index)
             }
         }
     }
 }
 
 struct CharacterInputCell: View {
-    @Binding var textValue: String
+    @State private var textValue: String = ""
     @Binding var currentlySelectedCell: Int
+    @Binding var originalText: String
+    
     var textFieldWidth = UIScreen.main.bounds.width/5
-
     var index: Int
 
     var responder: Bool {
@@ -35,17 +36,18 @@ struct CharacterInputCell: View {
     }
 
     var body: some View {
-        PCCustomTextField(text: $textValue, currentlySelectedCell: $currentlySelectedCell, isFirstResponder: responder)
+        PCCustomTextField(text: $textValue, currentlySelectedCell: $currentlySelectedCell, originalText: $originalText, isFirstResponder: responder)
             .frame(height: 20)
             .frame(maxWidth: .infinity, alignment: .center)
             .padding([.trailing, .leading], 10)
-            .padding([.vertical], 15)
             .foregroundColor(Color.white)
+            .padding([.vertical], 15)
             .lineLimit(1)
             .multilineTextAlignment(.center)
-            .background(Rectangle().fill(Color("AppLightGreen")))
+            .background(Rectangle().fill(Color("AppLightGreen")).frame(width: textFieldWidth, height: textFieldWidth))
     }
 }
+
 
 struct PCCustomTextField: UIViewRepresentable {
 
@@ -53,21 +55,27 @@ struct PCCustomTextField: UIViewRepresentable {
 
         @Binding var text: String
         @Binding var currentlySelectedCell: Int
+        @Binding var originalText: String
 
         var didBecomeFirstResponder = false
 
-        init(text: Binding<String>, currentlySelectedCell: Binding<Int>) {
+        init(text: Binding<String>, currentlySelectedCell: Binding<Int>, originalText: Binding<String>) {
             _text = text
             _currentlySelectedCell = currentlySelectedCell
+            _originalText = originalText
         }
 
         func textFieldDidChangeSelection(_ textField: UITextField) {
             DispatchQueue.main.async {
                 self.text = textField.text ?? ""
+                if let textValue = textField.text, textValue.count == 2 {
+                    self.originalText += textValue
+                }
             }
         }
 
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            textField.textColor = .white
             let currentText = textField.text ?? ""
 
             guard let stringRange = Range(range, in: currentText) else { return false }
@@ -77,6 +85,7 @@ struct PCCustomTextField: UIViewRepresentable {
             if updatedText.count == 2 {
                 self.currentlySelectedCell += 1
             }
+//            print(updatedText)
 
             return updatedText.count <= 2
         }
@@ -84,6 +93,7 @@ struct PCCustomTextField: UIViewRepresentable {
 
     @Binding var text: String
     @Binding var currentlySelectedCell: Int
+    @Binding var originalText: String
     var isFirstResponder: Bool = false
 
     func makeUIView(context: UIViewRepresentableContext<PCCustomTextField>) -> UITextField {
@@ -95,7 +105,7 @@ struct PCCustomTextField: UIViewRepresentable {
     }
 
     func makeCoordinator() -> PCCustomTextField.Coordinator {
-        return Coordinator(text: $text, currentlySelectedCell: $currentlySelectedCell)
+        return Coordinator(text: $text, currentlySelectedCell: $currentlySelectedCell, originalText: $originalText)
     }
 
     func updateUIView(_ uiView: UITextField, context: UIViewRepresentableContext<PCCustomTextField>) {
@@ -107,8 +117,9 @@ struct PCCustomTextField: UIViewRepresentable {
     }
 }
 
-struct CustomNumberPad_Previews: PreviewProvider {
-    static var previews: some View {
-        PasscodeField(resetCode: .constant(""))
-    }
-}
+
+//struct CustomNumberPad_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CustomNumberPad(passcode: .constant("23"))
+//    }
+//}

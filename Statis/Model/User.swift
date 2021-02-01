@@ -10,5 +10,8 @@ import Foundation
 
 struct User {
     let id: String
+    let fullName: String = ""
+    let phoneNumber: String = ""
+    let username: String = ""
     let email: String
 }

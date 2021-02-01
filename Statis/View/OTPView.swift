@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct OPTView: View {
+struct OTPView: View {
     @ObservedObject private var viewModel: SignUpViewModel
     @State var pushActive = false
     @State var resetCode: String = ""
@@ -31,8 +31,8 @@ struct OPTView: View {
                     .foregroundColor(.white)
                     .padding(.leading, 25)
                 VStack(alignment: .center, spacing: 35) {
-                    PasscodeField(resetCode: $resetCode)
                     VStack(alignment: .center, spacing: 25) {
+                        PasscodeField(originalText: $resetCode)
                         CustomTextField(placeHolderText: "Password",
                                         text: $viewModel.password,
                                         isPasswordType: true, symbolName: "lock.fill")
@@ -41,16 +41,15 @@ struct OPTView: View {
                                         isPasswordType: true, symbolName: "lock.fill")
                     }.padding(.horizontal, 25)
                     
-                    //                    Spacer()
                     VStack(alignment: .center, spacing: 40) {
-                        customButton(title: "SIGN UP",
+                        customButton(title: "Reset",
                                      backgroundColor: UIConfiguration.AppGreen,
                                      width: screenSize.width/1.2,
                                      height: 50,
-                                     action: self.viewModel.signUp)
-                            .padding(.horizontal)
+                                     action: self.viewModel.signUp
+                        )
+                        .padding(.horizontal)
                     }
-                    //                    Spacer()
                 }
             }
             Spacer()

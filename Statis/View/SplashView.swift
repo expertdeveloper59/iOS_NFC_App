@@ -14,9 +14,7 @@ struct SplashView: View {
     var body: some View {
         VStack {
             if self.isActive {
-//                PasscodeField()
-//                CustomNumberPad()
-                OTPView(state: state)
+                SignInView(state: state)
             } else {
                 ZStack {
                     Color(UIConfiguration.tintColor)

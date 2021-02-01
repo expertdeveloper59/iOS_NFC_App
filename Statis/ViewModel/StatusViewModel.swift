@@ -29,4 +29,8 @@ class StatusViewModel: Identifiable, ObservableObject {
     static var errorStatus: StatusViewModel {
         return StatusViewModel(title: "Error", message: "Oops! Something went wrong. Please try again.")
     }
+    
+    static var validationStatus: StatusViewModel {
+        return StatusViewModel(title: "Error", message: "Oops! Passwords do not match. Please try again.")
+    }
 }

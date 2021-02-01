@@ -9,4 +9,5 @@ target 'Statis' do
 	pod 'Firebase/Auth'
 	pod 'FBSDKCoreKit'
  	pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
 end
