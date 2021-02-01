@@ -3,7 +3,7 @@
 //  Statis
 //
 //  Created by Fateh on 01/02/21.
-//  Copyright © 2020 iOS App Templates. All rights reserved.
+//  Copyright © Statis. All rights reserved.
 //
 import SwiftUI
 
@@ -15,7 +15,8 @@ struct SplashView: View {
         VStack {
             if self.isActive {
 //                WelcomeView(state: state)
-                SignUpView(state: state)
+                EmailVerificationView(state: state)
+//                SignInView(state: state)
             } else {
                 ZStack {
                     Color(UIConfiguration.tintColor)

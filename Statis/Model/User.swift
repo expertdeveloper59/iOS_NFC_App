@@ -3,7 +3,7 @@
 //  Statis
 //
 //  Created by Fateh on 01/02/21.
-//  Copyright © 2020 iOS App Templates. All rights reserved.
+//  Copyright © Statis. All rights reserved.
 //
 
 import Foundation

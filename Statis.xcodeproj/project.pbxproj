@@ -32,6 +32,7 @@
 		D86C249AD9B318D7EDABE111 /* Pods_FirebaseStarterSwiftUIApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33EF7DB6D4437A5CDC876808 /* Pods_FirebaseStarterSwiftUIApp.framework */; };
 		F75BDB8E25C715E0002CE741 /* SignupBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDB8D25C715E0002CE741 /* SignupBG.swift */; };
 		F75BDB9625C73AFA002CE741 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */; };
+		F7BB88B325C8275A0077F5ED /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		8445C9E02BCD321F08E7E9E0 /* Pods-FirebaseStarterSwiftUIApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseStarterSwiftUIApp.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseStarterSwiftUIApp/Pods-FirebaseStarterSwiftUIApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F75BDB8D25C715E0002CE741 /* SignupBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBG.swift; sourceTree = "<group>"; };
 		F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				30F0AF9124E976410084CE6E /* SplashView.swift */,
 				30D8C60124E818D300CB0858 /* SignUpView.swift */,
 				30127DCE24DE506300576F65 /* SignInView.swift */,
+				F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */,
 				30D8C5EC24E7755600CB0858 /* WelcomeView.swift */,
 				30DDE0BC24EC21E900208D32 /* DrawerView.swift */,
 				30DDE0BE24EC2A7C00208D32 /* HomeView.swift */,
@@ -341,6 +344,7 @@
 				30F0AF8E24E92E360084CE6E /* AuthService.swift in Sources */,
 				30DDE0BF24EC2A7C00208D32 /* HomeView.swift in Sources */,
 				30A39BED24DF999900EE7E2E /* SignUpViewModel.swift in Sources */,
+				F7BB88B325C8275A0077F5ED /* EmailVerificationView.swift in Sources */,
 				30F0AF9024E967920084CE6E /* StatusViewModel.swift in Sources */,
 				30D8C60224E818D400CB0858 /* SignUpView.swift in Sources */,
 				30127DCD24DE506300576F65 /* SceneDelegate.swift in Sources */,
