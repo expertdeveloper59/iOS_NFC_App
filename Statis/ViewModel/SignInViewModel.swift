@@ -14,6 +14,7 @@ import FirebaseAuth
 class SignInViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var confirmPassword: String = ""
     @Published var statusViewModel: StatusViewModel?
     @Published var state: AppState
     
@@ -35,7 +36,7 @@ class SignInViewModel: ObservableObject {
     }
     
     func verifyEmail() {
-        authAPI.verifyEmail(email: email)
+        authAPI.initiatePasswordReset(email: email)
             .receive(on: RunLoop.main)
             .map(verifResultMapper)
             .assign(to: \.statusViewModel, on: self)
@@ -44,6 +45,15 @@ class SignInViewModel: ObservableObject {
     
     func facebookLogin() {
         authAPI.loginWithFacebook()
+            .receive(on: RunLoop.main)
+            .map(resultMapper)
+            .replaceError(with: StatusViewModel.errorStatus)
+            .assign(to: \.statusViewModel, on: self)
+            .store(in: &cancellableBag)
+    }
+    
+    func updatePassword(otp: String, email: String) {
+        authAPI.updatePassword(OTPCode: otp, userEmail: email, password: self.password)
             .receive(on: RunLoop.main)
             .map(resultMapper)
             .replaceError(with: StatusViewModel.errorStatus)

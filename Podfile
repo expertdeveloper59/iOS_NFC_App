@@ -9,5 +9,9 @@ target 'Statis' do
 	pod 'Firebase/Auth'
 	pod 'FBSDKCoreKit'
  	pod 'FBSDKLoginKit'
-  pod 'GoogleSignIn'
+  	pod 'GoogleSignIn'
+	pod 'Firebase/Firestore'
+
+	# Optionally, include the Swift extensions if you're using Swift.
+	pod 'FirebaseFirestoreSwift'
 end

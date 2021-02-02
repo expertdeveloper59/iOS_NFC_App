@@ -109,7 +109,7 @@ struct SignInView: View {
             }
             .background(SignupBG())
             .sheet(isPresented: $sheetPresented) {
-                EmailVerificationView(state: appState)
+                PasswordResetView(state: appState)
             }
         }
         .onAppear {

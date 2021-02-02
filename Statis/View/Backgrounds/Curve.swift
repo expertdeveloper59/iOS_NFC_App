@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SignupBG: View {
+struct ACurve: View {
     let screenSize = UIScreen.main.bounds
     var body: some View {
         ZStack {
@@ -22,8 +22,8 @@ struct SignupBG: View {
     }
 }
 
-struct SignupBG_Previews: PreviewProvider {
+struct ACurve_Previews: PreviewProvider {
     static var previews: some View {
-        SignupBG()
+        ACurve()
     }
 }

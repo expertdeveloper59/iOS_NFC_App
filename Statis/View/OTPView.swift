@@ -7,30 +7,37 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct OTPView: View {
-    @ObservedObject private var viewModel: SignUpViewModel
+    @ObservedObject private var viewModel: SignInViewModel
     @State var pushActive = false
     @State var resetCode: String = ""
+    var associatedEmail: String
     let screenSize = UIScreen.main.bounds
     
-    init(state: AppState) {
-        self.viewModel = SignUpViewModel(authAPI: AuthService(), state: state)
+    init(state: AppState, email: String) {
+        self.viewModel = SignInViewModel(authAPI: AuthService(), state: state)
+        self.associatedEmail = email
     }
     
     var body: some View {
         VStack {
-            NavigationLink(destination: HomeView(state: viewModel.state),
-                           isActive: self.$pushActive) {
-                EmptyView()
-            }.hidden()
+//            NavigationLink(destination: HomeView(state: viewModel.state),
+//                           isActive: self.$pushActive) {
+//                EmptyView()
+//            }.hidden()
             VStack(alignment: .leading, spacing: 30) {
                 Spacer().frame(width: 100, height: screenSize.height/7, alignment: .center)
-                Text("SIGN UP")
+                Text("Reset Password")
                     .font(.custom("Futura", size: 28))
                     .foregroundColor(.white)
                     .padding(.leading, 25)
                 VStack(alignment: .center, spacing: 35) {
+                    Text("Enter OTP")
+                    .font(.custom("Futura", size: 18))
+                    .foregroundColor(.white)
+                    .padding(.leading, 25)
                     VStack(alignment: .center, spacing: 25) {
                         PasscodeField(originalText: $resetCode)
                         CustomTextField(placeHolderText: "Password",
@@ -46,7 +53,10 @@ struct OTPView: View {
                                      backgroundColor: UIConfiguration.AppGreen,
                                      width: screenSize.width/1.2,
                                      height: 50,
-                                     action: self.viewModel.signUp
+                                     action: {
+                                        self.viewModel.updatePassword(otp: resetCode, email: associatedEmail)
+                                     }
+//                                     action: self.viewModel.signUp
                         )
                         .padding(.horizontal)
                     }

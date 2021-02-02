@@ -32,9 +32,14 @@
 		30F0AF9B24E989020084CE6E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AF9A24E989020084CE6E /* CustomTextField.swift */; };
 		F75BDB8E25C715E0002CE741 /* SignupBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDB8D25C715E0002CE741 /* SignupBG.swift */; };
 		F75BDB9625C73AFA002CE741 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */; };
+		F765C63725C992D50050D9F1 /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F765C63625C992D50050D9F1 /* PasswordResetView.swift */; };
+		F765C63C25C995A50050D9F1 /* PassAndOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F765C63B25C995A50050D9F1 /* PassAndOTPView.swift */; };
+		F765C64025C9B6440050D9F1 /* HalfCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F765C63F25C9B6440050D9F1 /* HalfCircle.swift */; };
 		F7BB88B325C8275A0077F5ED /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */; };
 		F7BB88B725C82AF60077F5ED /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B625C82AF60077F5ED /* OTPView.swift */; };
 		F7BB88BA25C82D510077F5ED /* PasscodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B925C82D510077F5ED /* PasscodeField.swift */; };
+		F7CCEA7125C90F3600F6190A /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CCEA7025C90F3600F6190A /* FirestoreService.swift */; };
+		F7FF8E1F25C95DAF00FE16A0 /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FF8E1E25C95DAF00FE16A0 /* Curve.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,9 +76,15 @@
 		E5752F63CF97779D83A3F19D /* Pods-Statis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Statis.debug.xcconfig"; path = "Target Support Files/Pods-Statis/Pods-Statis.debug.xcconfig"; sourceTree = "<group>"; };
 		F75BDB8D25C715E0002CE741 /* SignupBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBG.swift; sourceTree = "<group>"; };
 		F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F765C63625C992D50050D9F1 /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
+		F765C63B25C995A50050D9F1 /* PassAndOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassAndOTPView.swift; sourceTree = "<group>"; };
+		F765C63F25C9B6440050D9F1 /* HalfCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircle.swift; sourceTree = "<group>"; };
 		F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
 		F7BB88B625C82AF60077F5ED /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		F7BB88B925C82D510077F5ED /* PasscodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeField.swift; sourceTree = "<group>"; };
+		F7CCEA6E25C904AC00F6190A /* Statis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Statis.entitlements; sourceTree = "<group>"; };
+		F7CCEA7025C90F3600F6190A /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		F7FF8E1E25C95DAF00FE16A0 /* Curve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curve.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +120,7 @@
 		30127DC924DE506300576F65 /* Statis */ = {
 			isa = PBXGroup;
 			children = (
+				F7CCEA6E25C904AC00F6190A /* Statis.entitlements */,
 				30DDE0B724EABC8100208D32 /* Model */,
 				30F0AF9924E9885E0084CE6E /* Components */,
 				30F0AF9624E985D40084CE6E /* Configuration */,
@@ -151,6 +163,8 @@
 				F7BB88B625C82AF60077F5ED /* OTPView.swift */,
 				30127DCE24DE506300576F65 /* SignInView.swift */,
 				F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */,
+				F765C63625C992D50050D9F1 /* PasswordResetView.swift */,
+				F765C63B25C995A50050D9F1 /* PassAndOTPView.swift */,
 				30D8C5EC24E7755600CB0858 /* WelcomeView.swift */,
 				30DDE0BC24EC21E900208D32 /* DrawerView.swift */,
 				30DDE0BE24EC2A7C00208D32 /* HomeView.swift */,
@@ -173,6 +187,7 @@
 			children = (
 				30F0AF8B24E92D160084CE6E /* AuthAPI.swift */,
 				30F0AF8D24E92E360084CE6E /* AuthService.swift */,
+				F7CCEA7025C90F3600F6190A /* FirestoreService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -221,7 +236,9 @@
 		F75BDB8C25C715C5002CE741 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				F7FF8E1E25C95DAF00FE16A0 /* Curve.swift */,
 				F75BDB8D25C715E0002CE741 /* SignupBG.swift */,
+				F765C63F25C9B6440050D9F1 /* HalfCircle.swift */,
 			);
 			path = Backgrounds;
 			sourceTree = "<group>";
@@ -237,8 +254,8 @@
 				30127DC324DE506300576F65 /* Sources */,
 				30127DC424DE506300576F65 /* Frameworks */,
 				30127DC524DE506300576F65 /* Resources */,
-				63F8B5697228CBAFD1392E7A /* [CP] Embed Pods Frameworks */,
-				E39C5561558F757817CD3507 /* [CP] Copy Pods Resources */,
+				D4A4E9FEA5F068DDD4A57C1B /* [CP] Embed Pods Frameworks */,
+				E0DA148EA959097B06267E6D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,23 +314,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		63F8B5697228CBAFD1392E7A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Statis/Pods-Statis-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Statis/Pods-Statis-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Statis/Pods-Statis-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6A4389E11D896F53345708AA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,7 +336,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E39C5561558F757817CD3507 /* [CP] Copy Pods Resources */ = {
+		D4A4E9FEA5F068DDD4A57C1B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Statis/Pods-Statis-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Statis/Pods-Statis-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Statis/Pods-Statis-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0DA148EA959097B06267E6D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -368,14 +385,19 @@
 				30DDE0B924EABC9700208D32 /* User.swift in Sources */,
 				30F0AF8C24E92D160084CE6E /* AuthAPI.swift in Sources */,
 				30DDE0BD24EC21E900208D32 /* DrawerView.swift in Sources */,
+				F7FF8E1F25C95DAF00FE16A0 /* Curve.swift in Sources */,
+				F765C63725C992D50050D9F1 /* PasswordResetView.swift in Sources */,
 				30D8C5F324E77DDE00CB0858 /* UIColorExt.swift in Sources */,
 				30F0AF8E24E92E360084CE6E /* AuthService.swift in Sources */,
 				30DDE0BF24EC2A7C00208D32 /* HomeView.swift in Sources */,
 				30A39BED24DF999900EE7E2E /* SignUpViewModel.swift in Sources */,
 				F7BB88B325C8275A0077F5ED /* EmailVerificationView.swift in Sources */,
+				F7CCEA7125C90F3600F6190A /* FirestoreService.swift in Sources */,
+				F765C63C25C995A50050D9F1 /* PassAndOTPView.swift in Sources */,
 				30F0AF9024E967920084CE6E /* StatusViewModel.swift in Sources */,
 				30D8C60224E818D400CB0858 /* SignUpView.swift in Sources */,
 				30127DCD24DE506300576F65 /* SceneDelegate.swift in Sources */,
+				F765C64025C9B6440050D9F1 /* HalfCircle.swift in Sources */,
 				30D8C5F124E77CFB00CB0858 /* UIConfiguration.swift in Sources */,
 				F75BDB8E25C715E0002CE741 /* SignupBG.swift in Sources */,
 				F7BB88BA25C82D510077F5ED /* PasscodeField.swift in Sources */,
@@ -521,6 +543,7 @@
 			baseConfigurationReference = E5752F63CF97779D83A3F19D /* Pods-Statis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Statis/Statis.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = U6FV5X29AZ;
@@ -542,6 +565,7 @@
 			baseConfigurationReference = 87F27B8191BB88051966CE47 /* Pods-Statis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Statis/Statis.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = U6FV5X29AZ;

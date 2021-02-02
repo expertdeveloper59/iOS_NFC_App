@@ -14,7 +14,10 @@ struct SplashView: View {
     var body: some View {
         VStack {
             if self.isActive {
+//                TiltedCircle()
                 SignInView(state: state)
+//                OTPView(state: state)
+//                SignUpView(state: state)
             } else {
                 ZStack {
                     Color(UIConfiguration.tintColor)

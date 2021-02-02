@@ -76,6 +76,7 @@ struct PCCustomTextField: UIViewRepresentable {
 
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             textField.textColor = .white
+            textField.font = .systemFont(ofSize: 22)
             let currentText = textField.text ?? ""
 
             guard let stringRange = Range(range, in: currentText) else { return false }

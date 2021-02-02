@@ -44,11 +44,11 @@ struct SignUpView: View {
                             CustomTextField(placeHolderText: "Name",
                                           text: $viewModel.fullName, symbolName: "person.fill")
                             CustomTextField(placeHolderText: "E-mail Address",
-                                          text: $viewModel.email, symbolName: "envelope.fill")
-                            CustomTextField(placeHolderText: "Phone Number",
+                                            text: $viewModel.email, symbolName: "envelope.fill", fieldType: UITextContentType.emailAddress)
+                            CustomTextField(placeHolderText: "Phone Number (+XXXXXXXXXXX)",
                                           text: $viewModel.phoneNumber, symbolName: "phone.fill")
                             CustomTextField(placeHolderText: "Username",
-                                          text: $viewModel.username, symbolName: "person.fill")
+                                            text: $viewModel.username, symbolName: "person.fill", fieldType: UITextContentType.username)
                             CustomTextField(placeHolderText: "Password",
                                           text: $viewModel.password,
                                           isPasswordType: true, symbolName: "lock.fill")
@@ -56,8 +56,6 @@ struct SignUpView: View {
                                           text: $viewModel.confirmPassword,
                                           isPasswordType: true, symbolName: "lock.fill")
                         }.padding(.horizontal, 25)
-                        
-    //                    Spacer()
                         VStack(alignment: .center, spacing: 40) {
                             customButton(title: "SIGN UP",
                                          backgroundColor: UIConfiguration.AppGreen,
@@ -66,7 +64,6 @@ struct SignUpView: View {
                                          action: self.viewModel.signUp)
                                 .padding(.horizontal)
                         }
-    //                    Spacer()
                     }
                 }
                 Spacer()

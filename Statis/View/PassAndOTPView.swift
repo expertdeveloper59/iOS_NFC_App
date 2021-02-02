@@ -12,16 +12,14 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import FirebaseAuth
 
-struct EmailVerificationView: View {
+struct PassAndOTPView: View {
     @State var pushActive = false
     @ObservedObject private var viewModel: SignInViewModel
     
     private var screenSize = UIScreen.main.bounds
-    var activityTitle = "Email Verification"
     
-    init(state: AppState, title: String) {
+    init(state: AppState) {
         self.viewModel = SignInViewModel(authAPI: AuthService(), state: state)
-        activityTitle = title
     }
     
     var body: some View {
@@ -35,7 +33,7 @@ struct EmailVerificationView: View {
             VStack(alignment: .center, spacing: 30) {
                 VStack(alignment: .center, spacing: 25) {
                     
-                    Text(activityTitle)
+                    Text("NEW VIEW")
                         .font(.custom("Futura", size: 28))
                         .foregroundColor(.white)
                     
@@ -54,7 +52,7 @@ struct EmailVerificationView: View {
             Spacer()
         }.alert(item: self.$viewModel.statusViewModel) { status in
             Alert(title: Text(status.title),
-                  message: Text("ff"),
+                  message: Text("An OTP has been sent to your registered phone number"),
                   dismissButton: .default(Text("OK"), action: {
                     if status.title == "Successful" {
                         self.pushActive = true
