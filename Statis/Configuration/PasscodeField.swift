@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 
 struct PasscodeField: View {
-    @State private var numberOfCells: Int = 4
+    @State private var numberOfCells: Int = 3
     @State private var currentlySelectedCell = 0
     @Binding var originalText: String
 

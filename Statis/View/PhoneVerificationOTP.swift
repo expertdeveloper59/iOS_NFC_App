@@ -12,57 +12,64 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import FirebaseAuth
 
-struct EmailVerificationView: View {
-    @State var pushActive = false
+struct PhoneVerificationOTPView: View {
+//    @Binding var thisViewActive: Bool
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var authCode = ""
     @ObservedObject private var viewModel: SignInViewModel
     
     private var screenSize = UIScreen.main.bounds
-    var activityTitle = "Email Verification"
     
-    init(state: AppState, title: String) {
+    init(state: AppState) {
         self.viewModel = SignInViewModel(authAPI: AuthService(), state: state)
-        activityTitle = title
+//        self.thisViewActive = thisViewActive
     }
     
     var body: some View {
         VStack {
-            NavigationLink(destination: HomeView(state: viewModel.state),
-                           isActive: self.$pushActive) {
-                EmptyView()
-            }.hidden()
+//            NavigationLink(destination: HomeView(state: viewModel.state),
+//                           isActive: self.$pushActive) {
+//                EmptyView()
+//            }.hidden()
             
-            Spacer().frame(height: screenSize.height/5)
+            Spacer()
             VStack(alignment: .center, spacing: 30) {
                 VStack(alignment: .center, spacing: 25) {
                     
-                    Text(activityTitle)
+                    Text("Email Verification")
                         .font(.custom("Futura", size: 28))
                         .foregroundColor(.white)
                     
-                    CustomTextField(placeHolderText: "Email Address",
-                                    text: $viewModel.email, symbolName: "envelope.fill")
+                    PasscodeField(originalText: $authCode)
+                    
+//                    CustomTextField(placeHolderText: "Email Address",
+//                                    text: $viewModel.email, symbolName: "envelope.fill")
                     
                 }.padding(.horizontal, 25)
                 
                 VStack(alignment: .center, spacing: 40) {
-                    customButton(title: "SEND",
+                    customButton(title: "VERIFY",
                                  backgroundColor: UIConfiguration.tintColor,
-                                 action: { self.viewModel.verifyEmail() })
+                                 action: {
+//                                    thisViewActive = false
+//                                    AuthService().signInWithOTP(OTPCode: authCode)
+                                    self.viewModel.loginWithOTP(OTPCode: authCode)
+                                 })
                 }
             }
             
             Spacer()
-        }.alert(item: self.$viewModel.statusViewModel) { status in
+        }
+        .alert(item: self.$viewModel.statusViewModel) { status in
             Alert(title: Text(status.title),
-                  message: Text("OTP has been sent"),
+                  message: Text("Phone number has been verified"),
                   dismissButton: .default(Text("OK"), action: {
                     if status.title == "Successful" {
-                        self.pushActive = true
+                        self.presentationMode.wrappedValue.dismiss()
                     }
                   }))
         }
-        .background(AuthViewsBackground(isSignInScreen: false))
-        .edgesIgnoringSafeArea(.all)
+        .background(AuthViewsBackground())
     }
     
     private func customButton(title: String,

@@ -12,6 +12,7 @@ struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject private var viewModel: SignUpViewModel
     @State var pushActive = false
+    @State var verifyActive = false
     let screenSize = UIScreen.main.bounds
     
     init(state: AppState) {
@@ -82,12 +83,21 @@ struct SignUpView: View {
             }.alert(item: self.$viewModel.statusViewModel) { status in
                 Alert(title: Text(status.title),
                       message: Text(status.message),
-                      dismissButton: .default(Text("OK"), action: { self.presentationMode.wrappedValue.dismiss() }))
+                      dismissButton: .default(Text("OK"), action: {
+//                                                self.presentationMode.wrappedValue.dismiss()
+                        self.verifyActive = true
+                        
+                      }))
             }
             .edgesIgnoringSafeArea(.all)
             .background(AuthViewsBackground(isSignInScreen: false))
         }
         .edgesIgnoringSafeArea(.all)
+        .sheet(isPresented: self.$verifyActive, onDismiss: {
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            PhoneVerificationOTPView(state: self.viewModel.state)
+        }
         }
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(true)

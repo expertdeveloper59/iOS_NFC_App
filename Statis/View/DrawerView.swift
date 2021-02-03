@@ -30,6 +30,7 @@ struct DrawerView: View {
             DrawerContent()
                 .frame(width: self.width)
                 .offset(x: self.isOpen ? 0 : -self.width)
+                .edgesIgnoringSafeArea(.vertical)
                 .animation(.default)
             Spacer()
         }.onTapGesture {

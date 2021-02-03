@@ -14,8 +14,8 @@ struct SplashView: View {
     var body: some View {
         VStack {
             if self.isActive {
-//                SignInView(state: state)
-                OTPView(state: state, email: "")
+                SignInView(state: state)
+//                OTPView(state: state, email: "")
             } else {
                 ZStack {
                     Color(UIConfiguration.tintColor)

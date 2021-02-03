@@ -17,6 +17,13 @@ struct AuthViewsBackground: View {
             VStack {
                 TiltedCircle()
                 Spacer()
+                HStack{
+                    Spacer()
+                    Image("vector1")
+                        .resizable()
+                        .frame(width: screenSize.width/2)
+                        .aspectRatio(contentMode: .fit)
+                }
             }
             if (isSignInScreen) {
                 VStack {
@@ -24,6 +31,20 @@ struct AuthViewsBackground: View {
                     HalfCircle()
                 }
             }
+            VStack(alignment: .trailing) {
+                Spacer().frame(height: screenSize.height/16)
+                HStack {
+                    Image("statisCard")
+                        .resizable()
+                        .frame(width: screenSize.width/2)
+                        .aspectRatio(contentMode: .fit)
+                        .padding()
+                    Spacer()
+                }
+                .padding(.horizontal)
+                Spacer()
+            }
+            
         }
         .background(Color("AppGreen"))
         .edgesIgnoringSafeArea(.all)

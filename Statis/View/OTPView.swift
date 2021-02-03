@@ -10,6 +10,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct OTPView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject private var viewModel: SignInViewModel
     @State var pushActive = false
     @State var resetCode: String = ""
@@ -23,26 +24,41 @@ struct OTPView: View {
     
     var body: some View {
         VStack {
-//            NavigationLink(destination: HomeView(state: viewModel.state),
-//                           isActive: self.$pushActive) {
-//                EmptyView()
-//            }.hidden()
+            Spacer().frame(height: screenSize.height/5)
             VStack(alignment: .leading, spacing: 30) {
-                Spacer().frame(width: 100, height: screenSize.height/7, alignment: .center)
                 Text("Reset Password")
                     .font(.custom("Futura", size: 28))
                     .foregroundColor(.white)
                     .padding(.leading, 25)
                 VStack(alignment: .center, spacing: 35) {
-                    Text("Enter OTP")
-                    .font(.custom("Futura", size: 18))
-                    .foregroundColor(.white)
-                    .padding(.leading, 25)
+                    HStack {
+                        Text("Enter OTP")
+                        .font(.custom("Futura", size: 18))
+                        .foregroundColor(.white)
+                        .padding(.leading, 25)
+                        Spacer()
+                    }
                     VStack(alignment: .center, spacing: 25) {
                         PasscodeField(originalText: $resetCode)
+                            .padding(.bottom)
+                        
+                        HStack {
+                            Text("New Password")
+                            .font(.custom("Futura", size: 18))
+                            .foregroundColor(.white)
+                            .padding(.leading, 25)
+                            Spacer()
+                        }
                         CustomTextField(placeHolderText: "Password",
                                         text: $viewModel.password,
                                         isPasswordType: true, symbolName: "lock.fill")
+                        HStack {
+                            Text("Confirm Password")
+                            .font(.custom("Futura", size: 18))
+                            .foregroundColor(.white)
+                            .padding(.leading, 25)
+                            Spacer()
+                        }
                         CustomTextField(placeHolderText: "Confirm Password",
                                         text: $viewModel.confirmPassword,
                                         isPasswordType: true, symbolName: "lock.fill")
@@ -54,7 +70,7 @@ struct OTPView: View {
                                      width: screenSize.width/1.2,
                                      height: 50,
                                      action: {
-                                        self.viewModel.updatePassword(otp: resetCode, email: associatedEmail)
+                                        self.viewModel.updatePassword(otp: String(resetCode.prefix(6)), email: associatedEmail)
                                      }
 //                                     action: self.viewModel.signUp
                         )
@@ -63,12 +79,14 @@ struct OTPView: View {
                 }
             }
             Spacer()
-        }.alert(item: self.$viewModel.statusViewModel) { status in
+        }
+        .edgesIgnoringSafeArea(.all)
+        .alert(item: self.$viewModel.statusViewModel) { status in
             Alert(title: Text(status.title),
                   message: Text(status.message),
-                  dismissButton: .default(Text("OK"), action: { self.pushActive = true }))
+                  dismissButton: .default(Text("OK"), action: { presentationMode.wrappedValue.dismiss() }))
         }
-        .background(AuthViewsBackground())
+        .background(AuthViewsBackground(isSignInScreen: false))
     }
     
     private func customButton(title: String,

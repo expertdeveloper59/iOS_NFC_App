@@ -35,6 +35,15 @@ class SignInViewModel: ObservableObject {
             .store(in: &cancellableBag)
     }
     
+    func loginWithOTP(OTPCode: String) {
+        authAPI.signInWithOTP(OTPCode: OTPCode)
+            .receive(on: RunLoop.main)
+            .map(resultMapper)
+            .replaceError(with: StatusViewModel.errorStatus)
+            .assign(to: \.statusViewModel, on: self)
+            .store(in: &cancellableBag)
+    }
+    
     func verifyEmail() {
         authAPI.initiatePasswordReset(email: email)
             .receive(on: RunLoop.main)

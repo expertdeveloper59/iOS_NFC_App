@@ -31,6 +31,7 @@ struct CustomTextField: View {
                 
             } else {
                 TextField(placeHolderText, text: $text)
+                    .keyboardType(.emailAddress)
                     .textContentType(fieldType)
                     .textFieldStyle(MyTextFieldStyle(imageName: sfSymbolName))
             }
