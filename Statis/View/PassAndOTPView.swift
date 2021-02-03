@@ -59,7 +59,7 @@ struct PassAndOTPView: View {
                     }
                   }))
         }
-        .background(SignupBG())
+        .background(AuthViewsBackground())
     }
     
     private func customButton(title: String,

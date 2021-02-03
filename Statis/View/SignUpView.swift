@@ -33,36 +33,48 @@ struct SignUpView: View {
 //                    }
 //                    Spacer()
 //                }
+                
                 VStack(alignment: .leading, spacing: 30) {
-                    Spacer().frame(width: 100, height: screenSize.height/7, alignment: .center)
+                    Spacer().frame(height: screenSize.height/5)
                     Text("SIGN UP")
                         .font(.custom("Futura", size: 28))
                         .foregroundColor(.white)
                         .padding(.leading, 25)
-                    VStack(alignment: .center, spacing: 35) {
-                        VStack(alignment: .center, spacing: 25) {
-                            CustomTextField(placeHolderText: "Name",
-                                          text: $viewModel.fullName, symbolName: "person.fill")
-                            CustomTextField(placeHolderText: "E-mail Address",
-                                            text: $viewModel.email, symbolName: "envelope.fill", fieldType: UITextContentType.emailAddress)
-                            CustomTextField(placeHolderText: "Phone Number (+XXXXXXXXXXX)",
-                                          text: $viewModel.phoneNumber, symbolName: "phone.fill")
-                            CustomTextField(placeHolderText: "Username",
-                                            text: $viewModel.username, symbolName: "person.fill", fieldType: UITextContentType.username)
-                            CustomTextField(placeHolderText: "Password",
-                                          text: $viewModel.password,
-                                          isPasswordType: true, symbolName: "lock.fill")
-                            CustomTextField(placeHolderText: "Confirm Password",
-                                          text: $viewModel.confirmPassword,
-                                          isPasswordType: true, symbolName: "lock.fill")
+                        .padding(.top)
+                    VStack(alignment: .center, spacing: 0) {
+                        VStack(alignment: .center, spacing: 0) {
+//                            List(1...4, id: \.self) { index in
+//
+//                            }
+                            VStack {
+                                CustomTextField(placeHolderText: "Name",
+                                              text: $viewModel.fullName, symbolName: "person.fill")
+                                CustomTextField(placeHolderText: "E-mail Address",
+                                                text: $viewModel.email, symbolName: "envelope.fill", fieldType: UITextContentType.emailAddress)
+                                CustomTextField(placeHolderText: "Phone Number (+XXXXXXXXXXX)",
+                                              text: $viewModel.phoneNumber, symbolName: "phone.fill")
+                                CustomTextField(placeHolderText: "Username",
+                                                text: $viewModel.username, symbolName: "person.fill", fieldType: UITextContentType.username)
+                                CustomTextField(placeHolderText: "Password",
+                                              text: $viewModel.password,
+                                              isPasswordType: true, symbolName: "lock.fill")
+                                CustomTextField(placeHolderText: "Confirm Password",
+                                              text: $viewModel.confirmPassword,
+                                              isPasswordType: true, symbolName: "lock.fill")
+                                Spacer()
+                                customButton(title: "SIGN UP",
+                                             backgroundColor: UIConfiguration.AppGreen,
+                                             width: screenSize.width/1.2,
+                                             height: 50,
+                                             action: self.viewModel.signUp)
+                                    .padding(.horizontal)
+                                Spacer()
+                            }
+                            
+                            Spacer()
                         }.padding(.horizontal, 25)
-                        VStack(alignment: .center, spacing: 40) {
-                            customButton(title: "SIGN UP",
-                                         backgroundColor: UIConfiguration.AppGreen,
-                                         width: screenSize.width/1.2,
-                                         height: 50,
-                                         action: self.viewModel.signUp)
-                                .padding(.horizontal)
+                        VStack(alignment: .center, spacing: 0) {
+                            
                         }
                     }
                 }
@@ -72,8 +84,10 @@ struct SignUpView: View {
                       message: Text(status.message),
                       dismissButton: .default(Text("OK"), action: { self.presentationMode.wrappedValue.dismiss() }))
             }
-            .background(SignupBG())
+            .edgesIgnoringSafeArea(.all)
+            .background(AuthViewsBackground(isSignInScreen: false))
         }
+        .edgesIgnoringSafeArea(.all)
         }
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(true)

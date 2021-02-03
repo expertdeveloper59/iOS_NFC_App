@@ -8,14 +8,18 @@
 
 import SwiftUI
 
-struct SignupBG: View {
+struct AuthViewsBackground: View {
     let screenSize = UIScreen.main.bounds
     var body: some View {
         ZStack {
-            Color("AppGreen")
-//            Circle().fill(Color.white)
-//                .position(CGPoint(x: screenSize.width*1.4, y: -1*(screenSize.height/3.2)))
-//                .frame(width: 1300, height: 700, alignment: .center)
+            VStack {
+                TiltedCircle()
+                Spacer()
+            }
+            VStack {
+                Spacer()
+                HalfCircle()
+            }
         }
         .background(Color("AppGreen"))
         .edgesIgnoringSafeArea(.all)
@@ -24,6 +28,6 @@ struct SignupBG: View {
 
 struct SignupBG_Previews: PreviewProvider {
     static var previews: some View {
-        SignupBG()
+        AuthViewsBackground()
     }
 }

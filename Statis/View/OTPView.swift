@@ -68,7 +68,7 @@ struct OTPView: View {
                   message: Text(status.message),
                   dismissButton: .default(Text("OK"), action: { self.pushActive = true }))
         }
-        .background(SignupBG())
+        .background(AuthViewsBackground())
     }
     
     private func customButton(title: String,

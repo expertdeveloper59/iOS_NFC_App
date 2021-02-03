@@ -61,7 +61,7 @@ struct EmailVerificationView: View {
                     }
                   }))
         }
-        .background(SignupBG())
+        .background(AuthViewsBackground())
     }
     
     private func customButton(title: String,

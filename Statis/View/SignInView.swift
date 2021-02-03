@@ -36,16 +36,22 @@ struct SignInView: View {
                     EmptyView()
                 }.navigationBarHidden(true)
                 
-                    NavigationLink(destination: HomeView(state: viewModel.state),
-                                   isActive: self.$homeActive) {
-                        EmptyView()
-                    }.navigationBarHidden(true)
-                VStack(alignment: .leading, spacing: 30) {
-                    Spacer().frame(width: 100, height: screenSize.height/7, alignment: .center)
-                    VStack(alignment: .center, spacing: 30) {
-                        Text("SIGN IN")
-                            .font(.custom("Futura", size: 28))
-                            .foregroundColor(.white)
+                NavigationLink(destination: HomeView(state: viewModel.state),
+                               isActive: self.$homeActive) {
+                    EmptyView()
+                }.navigationBarHidden(true)
+                VStack(alignment: .leading, spacing: 10) {
+                    Spacer().frame(height: screenSize.height/5)
+                    VStack(alignment: .center, spacing: 10) {
+                        HStack {
+                            Text("SIGN IN")
+                                .font(.custom("Futura", size: 28))
+                                .foregroundColor(.white)
+                                .padding(.horizontal)
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom)
                         VStack(alignment: .center, spacing: 25) {
                             CustomTextField(placeHolderText: "E-mail",
                                             text: $viewModel.email, symbolName: "envelope.fill")
@@ -61,14 +67,13 @@ struct SignInView: View {
                             }
                         }.padding(.horizontal, 25)
                         
-                        VStack(alignment: .center, spacing: 40) {
+                        VStack(alignment: .center, spacing: 20) {
                             customButton(title: "SIGN IN",
                                          backgroundColor: UIConfiguration.tintColor,
                                          action: { self.viewModel.login() })
                             Text("OR")
-                            //                        customButton(title: "Facebook Login",
-                            //                                     backgroundColor: UIColor(hexString: "#334D92"),
-                            //                                     action: { self.viewModel.facebookLogin() })
+                                .font(.custom("Futura", size: 14))
+                                .foregroundColor(.white)
                             HStack(spacing: 20) {
                                 Button(action: {self.viewModel.facebookLogin()}, label: {
                                     SocialButton(iconName: "heart.fill", iconColor: .red, backgroundColor: .white)
@@ -82,22 +87,23 @@ struct SignInView: View {
                                 })
                             }
                         }
+                        .padding(.top)
                     }
                 }
                 Spacer()
-                VStack {
-                    Text("Don't have an account?")
-                        .font(.custom("Futura", size: 28))
-                        .foregroundColor(.white)
-                    Button("SIGN UP") {
-                        self.pushActive = true
+                Button(action: {
+                    self.pushActive = true
+                }) {
+                    VStack {
+                        Text("Don't have an account?")
+                            .font(.custom("Futura", size: 18))
+                            .foregroundColor(.gray)
+                        Text("SIGN UP")
+                            .autocapitalization(.allCharacters)
+                            .font(.custom("Futura", size: 18))
+                            .foregroundColor(Color("AppGreen"))
                     }
-                    .autocapitalization(.allCharacters)
-                    .font(.custom("Futura", size: 28))
-                    .foregroundColor(Color("AppGreen"))
                 }
-                .edgesIgnoringSafeArea(.all)
-                .background(Arc().foregroundColor(Color.white))
             }.alert(item: self.$viewModel.statusViewModel) { status in
                 Alert(title: Text(status.title),
                       message: Text(status.message),
@@ -107,7 +113,8 @@ struct SignInView: View {
                         }
                       }))
             }
-            .background(SignupBG())
+            .edgesIgnoringSafeArea(.all)
+            .background(AuthViewsBackground())
             .sheet(isPresented: $sheetPresented) {
                 PasswordResetView(state: appState)
             }
@@ -152,12 +159,12 @@ struct SocialButton: View {
     }
 }
 
-struct Arc: Shape {
-    var screenSize = UIScreen.main.bounds
-    
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        path.addArc(center: CGPoint(x: screenSize.width/8, y: screenSize.height/1.7), radius: 530, startAngle: .degrees(0), endAngle: .degrees(90), clockwise: true)
-        return path
-    }
-}
+//struct Arc: Shape {
+//    var screenSize = UIScreen.main.bounds
+//
+//    func path(in rect: CGRect) -> Path {
+//        var path = Path()
+//        path.addArc(center: CGPoint(x: screenSize.width/8, y: screenSize.height/1.7), radius: 530, startAngle: .degrees(0), endAngle: .degrees(90), clockwise: true)
+//        return path
+//    }
+//}
