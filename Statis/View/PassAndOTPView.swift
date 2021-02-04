@@ -34,11 +34,11 @@ struct PassAndOTPView: View {
                 VStack(alignment: .center, spacing: 25) {
                     
                     Text("NEW VIEW")
-                        .font(.custom("Futura", size: 28))
+                        .font(.custom("Poppins-Regular", size: 28))
                         .foregroundColor(.white)
                     
                     CustomTextField(placeHolderText: "Email Address",
-                                    text: $viewModel.email, symbolName: "envelope.fill")
+                                    text: $viewModel.email, symbolName: "envelope.fill", keyboardType: .emailAddress)
                     
                 }.padding(.horizontal, 25)
                 

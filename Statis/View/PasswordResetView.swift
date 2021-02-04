@@ -34,12 +34,12 @@ struct PasswordResetView: View {
                 VStack(alignment: .center, spacing: 30) {
                     VStack(alignment: .center, spacing: 25) {
                         
-                        Text("Email Verification")
-                            .font(.custom("Futura", size: 28))
+                        Text("Reset Password")
+                            .font(.custom("Poppins-Regular", size: 28))
                             .foregroundColor(.white)
                         
                         CustomTextField(placeHolderText: "Email Address",
-                                        text: $viewModel.email, symbolName: "envelope.fill", fieldType: UITextContentType.emailAddress)
+                                        text: $viewModel.email, symbolName: "envelope.fill", keyboardType: .emailAddress)
                         
                     }.padding(.horizontal, 25)
                     

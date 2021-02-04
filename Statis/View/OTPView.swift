@@ -27,13 +27,13 @@ struct OTPView: View {
             Spacer().frame(height: screenSize.height/5)
             VStack(alignment: .leading, spacing: 30) {
                 Text("Reset Password")
-                    .font(.custom("Futura", size: 28))
+                    .font(.custom("Poppins-Regular", size: 28))
                     .foregroundColor(.white)
                     .padding(.leading, 25)
                 VStack(alignment: .center, spacing: 35) {
                     HStack {
                         Text("Enter OTP")
-                        .font(.custom("Futura", size: 18))
+                        .font(.custom("Poppins-Regular", size: 18))
                         .foregroundColor(.white)
                         .padding(.leading, 25)
                         Spacer()
@@ -44,7 +44,7 @@ struct OTPView: View {
                         
                         HStack {
                             Text("New Password")
-                            .font(.custom("Futura", size: 18))
+                            .font(.custom("Poppins-Regular", size: 18))
                             .foregroundColor(.white)
                             .padding(.leading, 25)
                             Spacer()
@@ -54,7 +54,7 @@ struct OTPView: View {
                                         isPasswordType: true, symbolName: "lock.fill")
                         HStack {
                             Text("Confirm Password")
-                            .font(.custom("Futura", size: 18))
+                            .font(.custom("Poppins-Regular", size: 18))
                             .foregroundColor(.white)
                             .padding(.leading, 25)
                             Spacer()
@@ -72,7 +72,6 @@ struct OTPView: View {
                                      action: {
                                         self.viewModel.updatePassword(otp: String(resetCode.prefix(6)), email: associatedEmail)
                                      }
-//                                     action: self.viewModel.signUp
                         )
                         .padding(.horizontal)
                     }
@@ -84,7 +83,8 @@ struct OTPView: View {
         .alert(item: self.$viewModel.statusViewModel) { status in
             Alert(title: Text(status.title),
                   message: Text(status.message),
-                  dismissButton: .default(Text("OK"), action: { presentationMode.wrappedValue.dismiss() }))
+                  dismissButton: .default(Text("OK"), action: { presentationMode.wrappedValue.dismiss()
+                  }))
         }
         .background(AuthViewsBackground(isSignInScreen: false))
     }

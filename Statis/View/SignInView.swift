@@ -45,7 +45,7 @@ struct SignInView: View {
                     VStack(alignment: .center, spacing: 10) {
                         HStack {
                             Text("SIGN IN")
-                                .font(.custom("Futura", size: 28))
+                                .font(.custom("Poppins-Regular", size: 28))
                                 .foregroundColor(.white)
                                 .padding(.horizontal)
                             Spacer()
@@ -54,7 +54,7 @@ struct SignInView: View {
                         .padding(.bottom)
                         VStack(alignment: .center, spacing: 25) {
                             CustomTextField(placeHolderText: "E-mail",
-                                            text: $viewModel.email, symbolName: "envelope.fill")
+                                            text: $viewModel.email, symbolName: "envelope.fill", keyboardType: .emailAddress)
                             CustomTextField(placeHolderText: "Password",
                                             text: $viewModel.password,
                                             isPasswordType: true, symbolName: "lock.fill")
@@ -71,19 +71,20 @@ struct SignInView: View {
                             customButton(title: "SIGN IN",
                                          backgroundColor: UIConfiguration.tintColor,
                                          action: { self.viewModel.login() })
+                                .disabled(self.viewModel.requestProcessing)
                             Text("OR")
-                                .font(.custom("Futura", size: 14))
+                                .font(.custom("Poppins-Regular", size: 14))
                                 .foregroundColor(.white)
                             HStack(spacing: 20) {
                                 Button(action: {self.viewModel.facebookLogin()}, label: {
-                                    SocialButton(iconName: "heart.fill", iconColor: .red, backgroundColor: .white)
+                                    SocialButton(iconName: "facebook", iconColor: .red, backgroundColor: .blue)
                                 })
                                 Button(action: {
                                     GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
                                     
                                     GIDSignIn.sharedInstance()?.signIn()
                                 }, label: {
-                                    SocialButton(iconName: "bold", iconColor: .white, backgroundColor: .blue)
+                                    SocialButton(iconName: "google", iconColor: .white, backgroundColor: .white)
                                 })
                             }
                         }
@@ -96,11 +97,11 @@ struct SignInView: View {
                 }) {
                     VStack {
                         Text("Don't have an account?")
-                            .font(.custom("Futura", size: 18))
+                            .font(.custom("Poppins-Regular", size: 18))
                             .foregroundColor(.gray)
                         Text("SIGN UP")
                             .autocapitalization(.allCharacters)
-                            .font(.custom("Futura", size: 18))
+                            .font(.custom("Poppins-Regular", size: 18))
                             .foregroundColor(Color("AppGreen"))
                     }
                 }
@@ -110,6 +111,7 @@ struct SignInView: View {
                       dismissButton: .default(Text("OK"), action: {
                         if status.title == "Successful" {
                             self.homeActive = true
+                            self.viewModel.changeProcesssingState()
                         }
                       }))
             }
@@ -120,11 +122,7 @@ struct SignInView: View {
             }
         }
         .onAppear {
-            
             NotificationCenter.default.addObserver(forName: NSNotification.Name("SIGNIN"), object: nil, queue: .main) { (_) in
-                
-                // Updating User..
-                
                 self.user = Auth.auth().currentUser
                 self.homeActive = true
             }
@@ -151,7 +149,8 @@ struct SocialButton: View {
     var iconColor = Color.white
     var backgroundColor = Color.white
     var body: some View {
-        Image(systemName: iconName)
+        Image(iconName)
+            .frame(width: 20, height: 20)
             .padding()
             .background(backgroundColor)
             .foregroundColor(iconColor)
@@ -159,12 +158,3 @@ struct SocialButton: View {
     }
 }
 
-//struct Arc: Shape {
-//    var screenSize = UIScreen.main.bounds
-//
-//    func path(in rect: CGRect) -> Path {
-//        var path = Path()
-//        path.addArc(center: CGPoint(x: screenSize.width/8, y: screenSize.height/1.7), radius: 530, startAngle: .degrees(0), endAngle: .degrees(90), clockwise: true)
-//        return path
-//    }
-//}

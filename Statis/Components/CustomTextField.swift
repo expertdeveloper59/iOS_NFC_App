@@ -14,14 +14,14 @@ struct CustomTextField: View {
     private let isPasswordType: Bool
     private let placeHolderText: String
     private let sfSymbolName: String
-    private let fieldType: UITextContentType
+    private let keyboardType: UIKeyboardType
     
-    init(placeHolderText: String, text: Binding<String>, isPasswordType: Bool = false, symbolName: String = "xmark", fieldType: UITextContentType = .username) {
+    init(placeHolderText: String, text: Binding<String>, isPasswordType: Bool = false, symbolName: String = "xmark", keyboardType: UIKeyboardType = .default) {
         _text = text
         self.isPasswordType = isPasswordType
         self.placeHolderText = placeHolderText
         self.sfSymbolName = symbolName
-        self.fieldType = fieldType
+        self.keyboardType = keyboardType
     }
     var body: some View {
         VStack {
@@ -31,8 +31,7 @@ struct CustomTextField: View {
                 
             } else {
                 TextField(placeHolderText, text: $text)
-                    .keyboardType(.emailAddress)
-                    .textContentType(fieldType)
+                    .keyboardType(keyboardType)
                     .textFieldStyle(MyTextFieldStyle(imageName: sfSymbolName))
             }
         }

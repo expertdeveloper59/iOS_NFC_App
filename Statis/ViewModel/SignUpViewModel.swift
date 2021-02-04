@@ -18,6 +18,7 @@ class SignUpViewModel: ObservableObject {
     @Published var phoneNumber: String = ""
     @Published var statusViewModel: StatusViewModel?
     @Published var state: AppState
+    @Published var requestProcessing: Bool = false
     
     private var cancellableBag = Set<AnyCancellable>()
     private let authAPI: AuthAPI
@@ -29,6 +30,7 @@ class SignUpViewModel: ObservableObject {
     
     func signUp() {
         if password == confirmPassword {
+            self.requestProcessing = true
             authAPI.signUp(email: email, password: password, phoneNo: phoneNumber)
                 .receive(on: RunLoop.main)
                 .map(resultMapper)
@@ -44,6 +46,10 @@ class SignUpViewModel: ObservableObject {
                 .store(in: &cancellableBag)
         }
         
+    }
+    
+    func changeProcessingState() {
+        self.requestProcessing.toggle()
     }
 }
 

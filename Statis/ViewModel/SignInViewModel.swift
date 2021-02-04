@@ -15,6 +15,7 @@ class SignInViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
+    @Published var requestProcessing: Bool = false
     @Published var statusViewModel: StatusViewModel?
     @Published var state: AppState
     
@@ -27,6 +28,7 @@ class SignInViewModel: ObservableObject {
     }
     
     func login() {
+        requestProcessing = true
         authAPI.login(email: email, password: password)
             .receive(on: RunLoop.main)
             .map(resultMapper)
@@ -36,6 +38,7 @@ class SignInViewModel: ObservableObject {
     }
     
     func loginWithOTP(OTPCode: String) {
+        requestProcessing = true
         authAPI.signInWithOTP(OTPCode: OTPCode)
             .receive(on: RunLoop.main)
             .map(resultMapper)
@@ -45,6 +48,7 @@ class SignInViewModel: ObservableObject {
     }
     
     func verifyEmail() {
+        requestProcessing = true
         authAPI.initiatePasswordReset(email: email)
             .receive(on: RunLoop.main)
             .map(verifResultMapper)
@@ -53,6 +57,7 @@ class SignInViewModel: ObservableObject {
     }
     
     func facebookLogin() {
+        requestProcessing = true
         authAPI.loginWithFacebook()
             .receive(on: RunLoop.main)
             .map(resultMapper)
@@ -62,6 +67,7 @@ class SignInViewModel: ObservableObject {
     }
     
     func updatePassword(otp: String, email: String) {
+        requestProcessing = true
         authAPI.updatePassword(OTPCode: otp, userEmail: email, password: self.password)
             .receive(on: RunLoop.main)
             .map(resultMapper)
@@ -71,12 +77,17 @@ class SignInViewModel: ObservableObject {
     }
     
     func googleLogin() {
+        requestProcessing = true
         authAPI.loginWithGoogle()
             .receive(on: RunLoop.main)
             .map(resultMapper)
             .replaceError(with: StatusViewModel.errorStatus)
             .assign(to: \.statusViewModel, on: self)
             .store(in: &cancellableBag)
+    }
+    
+    func changeProcesssingState(){
+        self.requestProcessing.toggle()
     }
 }
 

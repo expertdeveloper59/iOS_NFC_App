@@ -13,7 +13,6 @@ import FBSDKLoginKit
 import FirebaseAuth
 
 struct PhoneVerificationOTPView: View {
-//    @Binding var thisViewActive: Bool
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var authCode = ""
     @ObservedObject private var viewModel: SignInViewModel
@@ -22,28 +21,20 @@ struct PhoneVerificationOTPView: View {
     
     init(state: AppState) {
         self.viewModel = SignInViewModel(authAPI: AuthService(), state: state)
-//        self.thisViewActive = thisViewActive
     }
     
     var body: some View {
         VStack {
-//            NavigationLink(destination: HomeView(state: viewModel.state),
-//                           isActive: self.$pushActive) {
-//                EmptyView()
-//            }.hidden()
             
             Spacer()
             VStack(alignment: .center, spacing: 30) {
                 VStack(alignment: .center, spacing: 25) {
                     
-                    Text("Email Verification")
-                        .font(.custom("Futura", size: 28))
+                    Text("Phone Verification")
+                        .font(.custom("Poppins-Regular", size: 28))
                         .foregroundColor(.white)
                     
                     PasscodeField(originalText: $authCode)
-                    
-//                    CustomTextField(placeHolderText: "Email Address",
-//                                    text: $viewModel.email, symbolName: "envelope.fill")
                     
                 }.padding(.horizontal, 25)
                 
@@ -51,10 +42,9 @@ struct PhoneVerificationOTPView: View {
                     customButton(title: "VERIFY",
                                  backgroundColor: UIConfiguration.tintColor,
                                  action: {
-//                                    thisViewActive = false
-//                                    AuthService().signInWithOTP(OTPCode: authCode)
                                     self.viewModel.loginWithOTP(OTPCode: authCode)
                                  })
+                        .padding(.vertical)
                 }
             }
             

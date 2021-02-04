@@ -38,6 +38,7 @@ struct CharacterInputCell: View {
     var body: some View {
         PCCustomTextField(text: $textValue, currentlySelectedCell: $currentlySelectedCell, originalText: $originalText, isFirstResponder: responder)
             .frame(height: 20)
+            .keyboardType(.numberPad)
             .frame(maxWidth: .infinity, alignment: .center)
             .padding([.trailing, .leading], 10)
             .foregroundColor(Color.white)

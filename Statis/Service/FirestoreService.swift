@@ -25,9 +25,7 @@ class FirestoreViewModel: ObservableObject {
     private var db = Firestore.firestore()
     
     func addUser(_ user: FBUser) {
-//        Firestore().coll
-//        db.collection("users").document(user.userEmail).setData(["userEmail": user.userEmail, "phoneNumber": user.phoneNo])
-            db.collection("users").addDocument(data: ["userEmail": user.userEmail, "phoneNumber": user.phoneNo])
+        db.collection("users").addDocument(data: ["userEmail": user.userEmail, "phoneNumber": user.phoneNo])
     }
     
     func getUser(_ userEmail: String, completion: @escaping (_ pN: String) ->()) {
