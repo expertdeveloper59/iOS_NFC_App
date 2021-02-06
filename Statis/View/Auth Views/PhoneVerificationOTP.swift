@@ -59,7 +59,7 @@ struct PhoneVerificationOTPView: View {
                     }
                   }))
         }
-        .background(AuthViewsBackground())
+        .background(AuthViewsBackground(backgroundImage: "confirmed-password"))
     }
     
     private func customButton(title: String,

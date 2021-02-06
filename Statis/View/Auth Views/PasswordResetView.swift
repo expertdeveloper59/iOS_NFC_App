@@ -60,7 +60,7 @@ struct PasswordResetView: View {
                         }
                       }))
             }
-            .background(AuthViewsBackground())
+            .background(AuthViewsBackground(isSignInScreen: false, backgroundImage: "forgot-password"))
         }
     }
     

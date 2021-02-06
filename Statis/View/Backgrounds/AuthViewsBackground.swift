@@ -10,18 +10,19 @@ import SwiftUI
 
 struct AuthViewsBackground: View {
     var isSignInScreen = true
-    var backgroundImage = ""
+    var backgroundImage = "vector1"
     let screenSize = UIScreen.main.bounds
     var body: some View {
         ZStack {
             VStack {
                 TiltedCircle()
                 Spacer()
-                HStack{
-                    Spacer()
-                    Image("vector1")
+                HStack {
+                    if (backgroundImage == "vector1") {
+                        Spacer()
+                    }
+                    Image(backgroundImage)
                         .resizable()
-                        .frame(width: screenSize.width/2)
                         .aspectRatio(contentMode: .fit)
                 }
             }

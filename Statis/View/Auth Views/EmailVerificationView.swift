@@ -12,14 +12,16 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import FirebaseAuth
 
-struct PassAndOTPView: View {
+struct EmailVerificationView: View {
     @State var pushActive = false
     @ObservedObject private var viewModel: SignInViewModel
     
     private var screenSize = UIScreen.main.bounds
+    var activityTitle = "Email Verification"
     
-    init(state: AppState) {
+    init(state: AppState, title: String) {
         self.viewModel = SignInViewModel(authAPI: AuthService(), state: state)
+        activityTitle = title
     }
     
     var body: some View {
@@ -29,11 +31,11 @@ struct PassAndOTPView: View {
                 EmptyView()
             }.hidden()
             
-            Spacer()
+            Spacer().frame(height: screenSize.height/5)
             VStack(alignment: .center, spacing: 30) {
                 VStack(alignment: .center, spacing: 25) {
                     
-                    Text("NEW VIEW")
+                    Text(activityTitle)
                         .font(.custom("Poppins-Regular", size: 28))
                         .foregroundColor(.white)
                     
@@ -52,14 +54,15 @@ struct PassAndOTPView: View {
             Spacer()
         }.alert(item: self.$viewModel.statusViewModel) { status in
             Alert(title: Text(status.title),
-                  message: Text("An OTP has been sent to your registered phone number"),
+                  message: Text("OTP has been sent"),
                   dismissButton: .default(Text("OK"), action: {
                     if status.title == "Successful" {
                         self.pushActive = true
                     }
                   }))
         }
-        .background(AuthViewsBackground())
+        .background(AuthViewsBackground(isSignInScreen: false, backgroundImage: "confirmed-password"))
+        .edgesIgnoringSafeArea(.all)
     }
     
     private func customButton(title: String,

@@ -69,6 +69,42 @@ struct ButtonModifier: ViewModifier {
     }
 }
 
+
+struct RectButtonModifier: ViewModifier {
+    private let font: UIFont
+    private let color: UIColor
+    private let textColor: UIColor
+    private let width: CGFloat?
+    private let height: CGFloat?
+    
+    init(font: UIFont,
+         color: UIColor,
+         textColor: UIColor = .white,
+         width: CGFloat? = nil,
+         height: CGFloat? = nil) {
+        self.font = font
+        self.color = color
+        self.textColor = textColor
+        self.width = width
+        self.height = height
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .modifier(TextModifier(font: font,
+                                   color: textColor))
+            .padding()
+            .frame(width: width, height: height)
+            .background(
+                RoundedRectangle(cornerRadius: 5)
+                    .fill(Color("AppGreen"))
+                    .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 8)
+            )
+//            .overlay(RoundedRectangle(cornerRadius: .infinity)
+//                        .stroke(Color.white, lineWidth: 4))
+    }
+}
+
 struct MyTextFieldStyle: TextFieldStyle {
     var screenSize = UIScreen.main.bounds
     let imageName: String

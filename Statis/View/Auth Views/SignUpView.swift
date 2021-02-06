@@ -87,19 +87,4 @@ struct SignUpView: View {
         
         
     }
-    
-    private func customButton(title: String,
-                              backgroundColor: UIColor,
-                              width: CGFloat,
-                              height: CGFloat,
-                              action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            Text(title)
-                .modifier(ButtonModifier(font: UIConfiguration.buttonFont,
-                                         color: backgroundColor,
-                                         textColor: .white,
-                                         width: width,
-                                         height: height))
-        }
-    }
 }

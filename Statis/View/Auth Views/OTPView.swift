@@ -86,7 +86,7 @@ struct OTPView: View {
                   dismissButton: .default(Text("OK"), action: { presentationMode.wrappedValue.dismiss()
                   }))
         }
-        .background(AuthViewsBackground(isSignInScreen: false))
+        .background(AuthViewsBackground(isSignInScreen: false, backgroundImage: "forgot-password"))
     }
     
     private func customButton(title: String,
