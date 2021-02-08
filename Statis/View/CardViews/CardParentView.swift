@@ -28,8 +28,6 @@ struct CardParentView: View {
         Question(question: "Your Card is ready to go!", TFtitle: "", image: "card11")
     ]
     
-    
-    
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 20) {
