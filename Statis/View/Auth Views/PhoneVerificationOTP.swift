@@ -40,7 +40,7 @@ struct PhoneVerificationOTPView: View {
                 
                 VStack(alignment: .center, spacing: 40) {
                     customButton(title: "VERIFY",
-                                 backgroundColor: UIConfiguration.tintColor,
+                                 backgroundColor: Color("AppGreen"),
                                  action: {
                                     self.viewModel.loginWithOTP(OTPCode: authCode)
                                  })
@@ -63,7 +63,7 @@ struct PhoneVerificationOTPView: View {
     }
     
     private func customButton(title: String,
-                              backgroundColor: UIColor,
+                              backgroundColor: Color,
                               action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Text(title)

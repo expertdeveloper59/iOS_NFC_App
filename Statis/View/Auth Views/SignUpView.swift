@@ -49,7 +49,7 @@ struct SignUpView: View {
                                                     isPasswordType: true, symbolName: "lock.fill")
                                     Spacer()
                                     customButton(title: "SIGN UP",
-                                                 backgroundColor: UIConfiguration.AppGreen,
+                                                 backgroundColor: Color("AppGreen"),
                                                  width: screenSize.width/1.2,
                                                  height: 50,
                                                  action: self.viewModel.signUp)

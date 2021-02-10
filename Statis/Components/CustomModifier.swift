@@ -36,13 +36,13 @@ struct ShadowModifier: ViewModifier {
 
 struct ButtonModifier: ViewModifier {
     private let font: UIFont
-    private let color: UIColor
+    private let color: Color
     private let textColor: UIColor
     private let width: CGFloat?
     private let height: CGFloat?
     
     init(font: UIFont,
-         color: UIColor,
+         color: Color,
          textColor: UIColor = .white,
          width: CGFloat? = nil,
          height: CGFloat? = nil) {
@@ -61,7 +61,7 @@ struct ButtonModifier: ViewModifier {
             .frame(width: width, height: height)
             .background(
                 Capsule(style: .circular)
-                    .fill(Color("AppGreen"))
+                    .fill(color)
                     .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 8)
             )
             .overlay(RoundedRectangle(cornerRadius: .infinity)

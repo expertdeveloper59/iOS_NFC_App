@@ -46,7 +46,7 @@ struct EmailVerificationView: View {
                 
                 VStack(alignment: .center, spacing: 40) {
                     customButton(title: "SEND",
-                                 backgroundColor: UIConfiguration.tintColor,
+                                 backgroundColor: Color("AppGreen"),
                                  action: { self.viewModel.verifyEmail() })
                 }
             }
@@ -66,7 +66,7 @@ struct EmailVerificationView: View {
     }
     
     private func customButton(title: String,
-                              backgroundColor: UIColor,
+                              backgroundColor: Color,
                               action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Text(title)

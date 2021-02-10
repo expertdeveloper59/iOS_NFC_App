@@ -53,6 +53,12 @@
 		F748887425CE835600799859 /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748887325CE835600799859 /* FloatingTextField.swift */; };
 		F748887825CE932D00799859 /* ButtonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748887725CE932D00799859 /* ButtonExt.swift */; };
 		F74CF04F25CED44200B6D630 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF04E25CED44200B6D630 /* Question.swift */; };
+		F74CF21C25D3C77C007B2958 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF21B25D3C77C007B2958 /* CardDetailView.swift */; };
+		F74CF21F25D3D785007B2958 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF21E25D3D785007B2958 /* ContactsView.swift */; };
+		F74CF22225D3F619007B2958 /* BusinessCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF22125D3F619007B2958 /* BusinessCardDetailView.swift */; };
+		F74CF22525D40435007B2958 /* BusinessCardGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF22425D40435007B2958 /* BusinessCardGreenView.swift */; };
+		F74CF22925D4110A007B2958 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF22825D4110A007B2958 /* SettingsView.swift */; };
+		F74CF22C25D423C3007B2958 /* GeneralCardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF22B25D423C3007B2958 /* GeneralCardInfoView.swift */; };
 		F75BDB8E25C715E0002CE741 /* AuthViewsBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDB8D25C715E0002CE741 /* AuthViewsBackground.swift */; };
 		F75BDB9625C73AFA002CE741 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */; };
 		F765C63725C992D50050D9F1 /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F765C63625C992D50050D9F1 /* PasswordResetView.swift */; };
@@ -119,6 +125,12 @@
 		F748887325CE835600799859 /* FloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
 		F748887725CE932D00799859 /* ButtonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExt.swift; sourceTree = "<group>"; };
 		F74CF04E25CED44200B6D630 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		F74CF21B25D3C77C007B2958 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
+		F74CF21E25D3D785007B2958 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		F74CF22125D3F619007B2958 /* BusinessCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCardDetailView.swift; sourceTree = "<group>"; };
+		F74CF22425D40435007B2958 /* BusinessCardGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCardGreenView.swift; sourceTree = "<group>"; };
+		F74CF22825D4110A007B2958 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F74CF22B25D423C3007B2958 /* GeneralCardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCardInfoView.swift; sourceTree = "<group>"; };
 		F75BDB8D25C715E0002CE741 /* AuthViewsBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewsBackground.swift; sourceTree = "<group>"; };
 		F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F765C63625C992D50050D9F1 /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
@@ -202,14 +214,14 @@
 		30F0AF9324E985240084CE6E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F74CF22725D41086007B2958 /* Misc Views */,
+				F7A631A025D1B4DE007E91FE /* HomeView */,
 				F748886B25CE761900799859 /* CardViews */,
 				F748886625CE751500799859 /* Auth Views */,
 				F7178DDB25CC6CA6009103AB /* Fonts */,
 				F75BDB8C25C715C5002CE741 /* Backgrounds */,
 				30F0AF9124E976410084CE6E /* SplashView.swift */,
 				30D8C5EC24E7755600CB0858 /* WelcomeView.swift */,
-				30DDE0BC24EC21E900208D32 /* DrawerView.swift */,
-				30DDE0BE24EC2A7C00208D32 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,8 +333,21 @@
 			isa = PBXGroup;
 			children = (
 				F748886C25CE763000799859 /* CardParentView.swift */,
+				F74CF21B25D3C77C007B2958 /* CardDetailView.swift */,
+				F74CF21E25D3D785007B2958 /* ContactsView.swift */,
+				F74CF22125D3F619007B2958 /* BusinessCardDetailView.swift */,
+				F74CF22425D40435007B2958 /* BusinessCardGreenView.swift */,
+				F74CF22B25D423C3007B2958 /* GeneralCardInfoView.swift */,
 			);
 			path = CardViews;
+			sourceTree = "<group>";
+		};
+		F74CF22725D41086007B2958 /* Misc Views */ = {
+			isa = PBXGroup;
+			children = (
+				F74CF22825D4110A007B2958 /* SettingsView.swift */,
+			);
+			path = "Misc Views";
 			sourceTree = "<group>";
 		};
 		F75BDB8C25C715C5002CE741 /* Backgrounds */ = {
@@ -331,6 +356,15 @@
 				F75BDB8D25C715E0002CE741 /* AuthViewsBackground.swift */,
 			);
 			path = Backgrounds;
+			sourceTree = "<group>";
+		};
+		F7A631A025D1B4DE007E91FE /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				30DDE0BE24EC2A7C00208D32 /* HomeView.swift */,
+				30DDE0BC24EC21E900208D32 /* DrawerView.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,11 +523,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F74CF22525D40435007B2958 /* BusinessCardGreenView.swift in Sources */,
 				30D8C5EF24E77C8000CB0858 /* CustomModifier.swift in Sources */,
 				F74CF04F25CED44200B6D630 /* Question.swift in Sources */,
 				30F0AF9224E976410084CE6E /* SplashView.swift in Sources */,
 				30DDE0C124EC2AD300208D32 /* AppState.swift in Sources */,
 				F76AD4C225CB1D96004A8F93 /* PhoneVerificationOTP.swift in Sources */,
+				F74CF22925D4110A007B2958 /* SettingsView.swift in Sources */,
 				F7178DD925CC62A4009103AB /* WelcomeView.swift in Sources */,
 				30127DCB24DE506300576F65 /* AppDelegate.swift in Sources */,
 				30DDE0B924EABC9700208D32 /* User.swift in Sources */,
@@ -507,6 +543,8 @@
 				F748887425CE835600799859 /* FloatingTextField.swift in Sources */,
 				30A39BED24DF999900EE7E2E /* SignUpViewModel.swift in Sources */,
 				F7BB88B325C8275A0077F5ED /* EmailVerificationView.swift in Sources */,
+				F74CF21C25D3C77C007B2958 /* CardDetailView.swift in Sources */,
+				F74CF22C25D423C3007B2958 /* GeneralCardInfoView.swift in Sources */,
 				F7CCEA7125C90F3600F6190A /* FirestoreService.swift in Sources */,
 				F765C63C25C995A50050D9F1 /* PassAndOTPView.swift in Sources */,
 				30F0AF9024E967920084CE6E /* StatusViewModel.swift in Sources */,
@@ -519,6 +557,8 @@
 				F7BB88B725C82AF60077F5ED /* OTPView.swift in Sources */,
 				30127DCF24DE506300576F65 /* SignInView.swift in Sources */,
 				30F0AF9824E9868D0084CE6E /* SignInViewModel.swift in Sources */,
+				F74CF22225D3F619007B2958 /* BusinessCardDetailView.swift in Sources */,
+				F74CF21F25D3D785007B2958 /* ContactsView.swift in Sources */,
 				F748886825CE75D900799859 /* CardDataViewModel.swift in Sources */,
 				30F0AF9B24E989020084CE6E /* CustomTextField.swift in Sources */,
 			);

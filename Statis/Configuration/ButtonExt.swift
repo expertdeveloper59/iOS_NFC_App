@@ -11,7 +11,7 @@ import SwiftUI
 
 extension View {
     func customButton(title: String,
-                              backgroundColor: UIColor,
+                              backgroundColor: Color,
                               width: CGFloat,
                               height: CGFloat,
                               action: @escaping () -> Void) -> some View {

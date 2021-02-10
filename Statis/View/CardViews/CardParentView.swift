@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CardParentView: View {
     let screenBounds = UIScreen.main.bounds
-    @State var index = 7
+    @State var index = 0
     @State var addNewSocialMediaAccount = false
     @State var buttonTitle = "Next"
     let questions = [

@@ -69,7 +69,7 @@ struct SignInView: View {
                         
                         VStack(alignment: .center, spacing: 20) {
                             customButton(title: "SIGN IN",
-                                         backgroundColor: UIConfiguration.tintColor,
+                                         backgroundColor: Color("AppGreen"),
                                          action: { self.viewModel.login() })
                                 .disabled(self.viewModel.requestProcessing)
                             Text("OR")
@@ -130,7 +130,7 @@ struct SignInView: View {
     }
     
     private func customButton(title: String,
-                              backgroundColor: UIColor,
+                              backgroundColor: Color,
                               action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Text(title)

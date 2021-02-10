@@ -66,7 +66,7 @@ struct OTPView: View {
                     
                     VStack(alignment: .center, spacing: 40) {
                         customButton(title: "Reset",
-                                     backgroundColor: UIConfiguration.AppGreen,
+                                     backgroundColor: Color("AppGreen"),
                                      width: screenSize.width/1.2,
                                      height: 50,
                                      action: {
@@ -90,7 +90,7 @@ struct OTPView: View {
     }
     
     private func customButton(title: String,
-                              backgroundColor: UIColor,
+                              backgroundColor: Color,
                               width: CGFloat,
                               height: CGFloat,
                               action: @escaping () -> Void) -> some View {
