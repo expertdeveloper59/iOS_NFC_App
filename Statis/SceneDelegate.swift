@@ -25,8 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-//            let rootView = SplashView(state: AppState())
-            let rootView = GeneralCardInfoView()
+//            let rootView = HomeView(state: AppState())
+            let rootView = BusinessCardDetailsSecondaryView()
             window.rootViewController = UIHostingController(rootView: rootView)
             self.window = window
             window.makeKeyAndVisible()

@@ -48,6 +48,8 @@
 		F7178DFD25CC6CDB009103AB /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7178DEB25CC6CD9009103AB /* Poppins-BoldItalic.ttf */; };
 		F7178DFE25CC6CDB009103AB /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7178DEC25CC6CDA009103AB /* Poppins-LightItalic.ttf */; };
 		F7178DFF25CC6CDB009103AB /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7178DED25CC6CDB009103AB /* Poppins-ThinItalic.ttf */; };
+		F71C8A1125D6AB020019CBC0 /* ContactDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C8A1025D6AB020019CBC0 /* ContactDetailsView.swift */; };
+		F71C8A1425D6D6840019CBC0 /* AboutStatisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C8A1325D6D6840019CBC0 /* AboutStatisView.swift */; };
 		F748886825CE75D900799859 /* CardDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748886725CE75D800799859 /* CardDataViewModel.swift */; };
 		F748886D25CE763000799859 /* CardParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748886C25CE763000799859 /* CardParentView.swift */; };
 		F748887425CE835600799859 /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748887325CE835600799859 /* FloatingTextField.swift */; };
@@ -59,6 +61,10 @@
 		F74CF22525D40435007B2958 /* BusinessCardGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF22425D40435007B2958 /* BusinessCardGreenView.swift */; };
 		F74CF22925D4110A007B2958 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF22825D4110A007B2958 /* SettingsView.swift */; };
 		F74CF22C25D423C3007B2958 /* GeneralCardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF22B25D423C3007B2958 /* GeneralCardInfoView.swift */; };
+		F74CF22F25D44703007B2958 /* FilterModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF22E25D44703007B2958 /* FilterModalView.swift */; };
+		F74CF23225D4473E007B2958 /* SupportModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF23125D4473E007B2958 /* SupportModalView.swift */; };
+		F74CF23525D45378007B2958 /* CardHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF23425D45377007B2958 /* CardHolderView.swift */; };
+		F74CF23925D466B7007B2958 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CF23825D466B7007B2958 /* ProfileView.swift */; };
 		F75BDB8E25C715E0002CE741 /* AuthViewsBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDB8D25C715E0002CE741 /* AuthViewsBackground.swift */; };
 		F75BDB9625C73AFA002CE741 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */; };
 		F765C63725C992D50050D9F1 /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F765C63625C992D50050D9F1 /* PasswordResetView.swift */; };
@@ -120,6 +126,8 @@
 		F7178DEB25CC6CD9009103AB /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
 		F7178DEC25CC6CDA009103AB /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
 		F7178DED25CC6CDB009103AB /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
+		F71C8A1025D6AB020019CBC0 /* ContactDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsView.swift; sourceTree = "<group>"; };
+		F71C8A1325D6D6840019CBC0 /* AboutStatisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutStatisView.swift; sourceTree = "<group>"; };
 		F748886725CE75D800799859 /* CardDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataViewModel.swift; sourceTree = "<group>"; };
 		F748886C25CE763000799859 /* CardParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardParentView.swift; sourceTree = "<group>"; };
 		F748887325CE835600799859 /* FloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
@@ -131,6 +139,10 @@
 		F74CF22425D40435007B2958 /* BusinessCardGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCardGreenView.swift; sourceTree = "<group>"; };
 		F74CF22825D4110A007B2958 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F74CF22B25D423C3007B2958 /* GeneralCardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCardInfoView.swift; sourceTree = "<group>"; };
+		F74CF22E25D44703007B2958 /* FilterModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModalView.swift; sourceTree = "<group>"; };
+		F74CF23125D4473E007B2958 /* SupportModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportModalView.swift; sourceTree = "<group>"; };
+		F74CF23425D45377007B2958 /* CardHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHolderView.swift; sourceTree = "<group>"; };
+		F74CF23825D466B7007B2958 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F75BDB8D25C715E0002CE741 /* AuthViewsBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewsBackground.swift; sourceTree = "<group>"; };
 		F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F765C63625C992D50050D9F1 /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
@@ -214,6 +226,8 @@
 		30F0AF9324E985240084CE6E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F71C8A0F25D6AAEB0019CBC0 /* Contact Views */,
+				F74CF23725D46692007B2958 /* Profile Views */,
 				F74CF22725D41086007B2958 /* Misc Views */,
 				F7A631A025D1B4DE007E91FE /* HomeView */,
 				F748886B25CE761900799859 /* CardViews */,
@@ -315,6 +329,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		F71C8A0F25D6AAEB0019CBC0 /* Contact Views */ = {
+			isa = PBXGroup;
+			children = (
+				F71C8A1025D6AB020019CBC0 /* ContactDetailsView.swift */,
+			);
+			path = "Contact Views";
+			sourceTree = "<group>";
+		};
 		F748886625CE751500799859 /* Auth Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +360,7 @@
 				F74CF22125D3F619007B2958 /* BusinessCardDetailView.swift */,
 				F74CF22425D40435007B2958 /* BusinessCardGreenView.swift */,
 				F74CF22B25D423C3007B2958 /* GeneralCardInfoView.swift */,
+				F74CF23425D45377007B2958 /* CardHolderView.swift */,
 			);
 			path = CardViews;
 			sourceTree = "<group>";
@@ -346,8 +369,17 @@
 			isa = PBXGroup;
 			children = (
 				F74CF22825D4110A007B2958 /* SettingsView.swift */,
+				F71C8A1325D6D6840019CBC0 /* AboutStatisView.swift */,
 			);
 			path = "Misc Views";
+			sourceTree = "<group>";
+		};
+		F74CF23725D46692007B2958 /* Profile Views */ = {
+			isa = PBXGroup;
+			children = (
+				F74CF23825D466B7007B2958 /* ProfileView.swift */,
+			);
+			path = "Profile Views";
 			sourceTree = "<group>";
 		};
 		F75BDB8C25C715C5002CE741 /* Backgrounds */ = {
@@ -363,6 +395,8 @@
 			children = (
 				30DDE0BE24EC2A7C00208D32 /* HomeView.swift */,
 				30DDE0BC24EC21E900208D32 /* DrawerView.swift */,
+				F74CF22E25D44703007B2958 /* FilterModalView.swift */,
+				F74CF23125D4473E007B2958 /* SupportModalView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -525,6 +559,7 @@
 			files = (
 				F74CF22525D40435007B2958 /* BusinessCardGreenView.swift in Sources */,
 				30D8C5EF24E77C8000CB0858 /* CustomModifier.swift in Sources */,
+				F71C8A1425D6D6840019CBC0 /* AboutStatisView.swift in Sources */,
 				F74CF04F25CED44200B6D630 /* Question.swift in Sources */,
 				30F0AF9224E976410084CE6E /* SplashView.swift in Sources */,
 				30DDE0C124EC2AD300208D32 /* AppState.swift in Sources */,
@@ -539,11 +574,14 @@
 				30D8C5F324E77DDE00CB0858 /* UIColorExt.swift in Sources */,
 				F748887825CE932D00799859 /* ButtonExt.swift in Sources */,
 				30F0AF8E24E92E360084CE6E /* AuthService.swift in Sources */,
+				F74CF22F25D44703007B2958 /* FilterModalView.swift in Sources */,
 				30DDE0BF24EC2A7C00208D32 /* HomeView.swift in Sources */,
+				F71C8A1125D6AB020019CBC0 /* ContactDetailsView.swift in Sources */,
 				F748887425CE835600799859 /* FloatingTextField.swift in Sources */,
 				30A39BED24DF999900EE7E2E /* SignUpViewModel.swift in Sources */,
 				F7BB88B325C8275A0077F5ED /* EmailVerificationView.swift in Sources */,
 				F74CF21C25D3C77C007B2958 /* CardDetailView.swift in Sources */,
+				F74CF23225D4473E007B2958 /* SupportModalView.swift in Sources */,
 				F74CF22C25D423C3007B2958 /* GeneralCardInfoView.swift in Sources */,
 				F7CCEA7125C90F3600F6190A /* FirestoreService.swift in Sources */,
 				F765C63C25C995A50050D9F1 /* PassAndOTPView.swift in Sources */,
@@ -554,12 +592,14 @@
 				F75BDB8E25C715E0002CE741 /* AuthViewsBackground.swift in Sources */,
 				F7BB88BA25C82D510077F5ED /* PasscodeField.swift in Sources */,
 				F748886D25CE763000799859 /* CardParentView.swift in Sources */,
+				F74CF23525D45378007B2958 /* CardHolderView.swift in Sources */,
 				F7BB88B725C82AF60077F5ED /* OTPView.swift in Sources */,
 				30127DCF24DE506300576F65 /* SignInView.swift in Sources */,
 				30F0AF9824E9868D0084CE6E /* SignInViewModel.swift in Sources */,
 				F74CF22225D3F619007B2958 /* BusinessCardDetailView.swift in Sources */,
 				F74CF21F25D3D785007B2958 /* ContactsView.swift in Sources */,
 				F748886825CE75D900799859 /* CardDataViewModel.swift in Sources */,
+				F74CF23925D466B7007B2958 /* ProfileView.swift in Sources */,
 				30F0AF9B24E989020084CE6E /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
