@@ -50,6 +50,7 @@
 		F7178DFF25CC6CDB009103AB /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7178DED25CC6CDB009103AB /* Poppins-ThinItalic.ttf */; };
 		F71C8A1125D6AB020019CBC0 /* ContactDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C8A1025D6AB020019CBC0 /* ContactDetailsView.swift */; };
 		F71C8A1425D6D6840019CBC0 /* AboutStatisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C8A1325D6D6840019CBC0 /* AboutStatisView.swift */; };
+		F71C8A1725D6F6F40019CBC0 /* StatisProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C8A1625D6F6F40019CBC0 /* StatisProfile.swift */; };
 		F748886825CE75D900799859 /* CardDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748886725CE75D800799859 /* CardDataViewModel.swift */; };
 		F748886D25CE763000799859 /* CardParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748886C25CE763000799859 /* CardParentView.swift */; };
 		F748887425CE835600799859 /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748887325CE835600799859 /* FloatingTextField.swift */; };
@@ -128,6 +129,7 @@
 		F7178DED25CC6CDB009103AB /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		F71C8A1025D6AB020019CBC0 /* ContactDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsView.swift; sourceTree = "<group>"; };
 		F71C8A1325D6D6840019CBC0 /* AboutStatisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutStatisView.swift; sourceTree = "<group>"; };
+		F71C8A1625D6F6F40019CBC0 /* StatisProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisProfile.swift; sourceTree = "<group>"; };
 		F748886725CE75D800799859 /* CardDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataViewModel.swift; sourceTree = "<group>"; };
 		F748886C25CE763000799859 /* CardParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardParentView.swift; sourceTree = "<group>"; };
 		F748887325CE835600799859 /* FloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 			children = (
 				F74CF22825D4110A007B2958 /* SettingsView.swift */,
 				F71C8A1325D6D6840019CBC0 /* AboutStatisView.swift */,
+				F71C8A1625D6F6F40019CBC0 /* StatisProfile.swift */,
 			);
 			path = "Misc Views";
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				30127DCD24DE506300576F65 /* SceneDelegate.swift in Sources */,
 				30D8C5F124E77CFB00CB0858 /* UIConfiguration.swift in Sources */,
 				F75BDB8E25C715E0002CE741 /* AuthViewsBackground.swift in Sources */,
+				F71C8A1725D6F6F40019CBC0 /* StatisProfile.swift in Sources */,
 				F7BB88BA25C82D510077F5ED /* PasscodeField.swift in Sources */,
 				F748886D25CE763000799859 /* CardParentView.swift in Sources */,
 				F74CF23525D45378007B2958 /* CardHolderView.swift in Sources */,

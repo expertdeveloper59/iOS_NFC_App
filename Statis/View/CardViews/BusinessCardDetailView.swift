@@ -54,6 +54,7 @@ struct BusinessCardDetailItem: View {
     var value = ""
     let screenBounds = UIScreen.main.bounds
     let menuColor: Color
+    var showAdd = true
     var action: () -> ()
     
     var body: some View {
@@ -76,15 +77,18 @@ struct BusinessCardDetailItem: View {
                             .foregroundColor(Color("BlackTanText"))
                     }
                     Spacer()
-                    Image(systemName: "plus")
-                        .foregroundColor(.gray)
-                        .padding(8)
+                    if showAdd {
+                        Image(systemName: "plus")
+                            .foregroundColor(.gray)
+                            .padding(8)
+                    }
                     
                 }
                 .padding()
             }
             .background(RoundedRectangle(cornerRadius: 8).fill(menuColor))
-            .padding([.top, .horizontal])
+            .padding(.horizontal)
+            .padding(.top, 2)
         }
     }
 }

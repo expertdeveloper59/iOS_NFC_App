@@ -58,7 +58,7 @@ struct HalfCircle: View {
         Path { path in
             path.move(to: CGPoint(x: 0, y: screenSize.height))
             path.addCurve(to: CGPoint(x: screenSize.width, y: screenSize.height), control1: CGPoint(x: screenSize.width/2, y: screenSize.height/1.25), control2: .init(x: screenSize.width, y: screenSize.height))
-            }
+        }
         .foregroundColor(.white)
     }
 }
@@ -72,10 +72,8 @@ struct TiltedCircle: View {
             path.addLine(to: .init(x: screenSize.width, y: 0))
             path.addLine(to: .init(x: 0, y: 0))
             path.addLine(to: CGPoint(x: -screenSize.width/4, y: screenSize.height/10))
-            }
+        }
         .foregroundColor(.white)
-//        .fill(Color.white)
-//        .background(Color.red)
     }
 }
 
