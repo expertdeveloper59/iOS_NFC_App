@@ -74,6 +74,8 @@
 		F7BB88B325C8275A0077F5ED /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */; };
 		F7BB88B725C82AF60077F5ED /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B625C82AF60077F5ED /* OTPView.swift */; };
 		F7BB88BA25C82D510077F5ED /* PasscodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B925C82D510077F5ED /* PasscodeField.swift */; };
+		F7BD35D525D9765200AA9DDD /* CardActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD35D425D9765200AA9DDD /* CardActionsView.swift */; };
+		F7BD35D825D986A600AA9DDD /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD35D725D986A600AA9DDD /* WalletView.swift */; };
 		F7CCEA7125C90F3600F6190A /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CCEA7025C90F3600F6190A /* FirestoreService.swift */; };
 /* End PBXBuildFile section */
 
@@ -153,6 +155,8 @@
 		F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
 		F7BB88B625C82AF60077F5ED /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		F7BB88B925C82D510077F5ED /* PasscodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeField.swift; sourceTree = "<group>"; };
+		F7BD35D425D9765200AA9DDD /* CardActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardActionsView.swift; sourceTree = "<group>"; };
+		F7BD35D725D986A600AA9DDD /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		F7CCEA6E25C904AC00F6190A /* Statis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Statis.entitlements; sourceTree = "<group>"; };
 		F7CCEA7025C90F3600F6190A /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -363,6 +367,7 @@
 				F74CF22425D40435007B2958 /* BusinessCardGreenView.swift */,
 				F74CF22B25D423C3007B2958 /* GeneralCardInfoView.swift */,
 				F74CF23425D45377007B2958 /* CardHolderView.swift */,
+				F7BD35D425D9765200AA9DDD /* CardActionsView.swift */,
 			);
 			path = CardViews;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				F74CF22825D4110A007B2958 /* SettingsView.swift */,
 				F71C8A1325D6D6840019CBC0 /* AboutStatisView.swift */,
 				F71C8A1625D6F6F40019CBC0 /* StatisProfile.swift */,
+				F7BD35D725D986A600AA9DDD /* WalletView.swift */,
 			);
 			path = "Misc Views";
 			sourceTree = "<group>";
@@ -574,6 +580,7 @@
 				30F0AF8C24E92D160084CE6E /* AuthAPI.swift in Sources */,
 				30DDE0BD24EC21E900208D32 /* DrawerView.swift in Sources */,
 				F765C63725C992D50050D9F1 /* PasswordResetView.swift in Sources */,
+				F7BD35D525D9765200AA9DDD /* CardActionsView.swift in Sources */,
 				30D8C5F324E77DDE00CB0858 /* UIColorExt.swift in Sources */,
 				F748887825CE932D00799859 /* ButtonExt.swift in Sources */,
 				30F0AF8E24E92E360084CE6E /* AuthService.swift in Sources */,
@@ -593,6 +600,7 @@
 				30127DCD24DE506300576F65 /* SceneDelegate.swift in Sources */,
 				30D8C5F124E77CFB00CB0858 /* UIConfiguration.swift in Sources */,
 				F75BDB8E25C715E0002CE741 /* AuthViewsBackground.swift in Sources */,
+				F7BD35D825D986A600AA9DDD /* WalletView.swift in Sources */,
 				F71C8A1725D6F6F40019CBC0 /* StatisProfile.swift in Sources */,
 				F7BB88BA25C82D510077F5ED /* PasscodeField.swift in Sources */,
 				F748886D25CE763000799859 /* CardParentView.swift in Sources */,

@@ -25,8 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-//            let rootView = HomeView(state: AppState())
-            let rootView = StatisProfile()
+            let rootView = HomeView(state: AppState()) // Change it with SplashView()
             window.rootViewController = UIHostingController(rootView: rootView)
             self.window = window
             window.makeKeyAndVisible()
