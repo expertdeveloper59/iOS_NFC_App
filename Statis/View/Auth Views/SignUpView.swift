@@ -13,6 +13,7 @@ struct SignUpView: View {
     @ObservedObject private var viewModel: SignUpViewModel
     @State var pushActive = false
     @State var verifyActive = false
+    @State var allFieldsDoneError = false
     let screenSize = UIScreen.main.bounds
     
     init(state: AppState) {
@@ -23,8 +24,8 @@ struct SignUpView: View {
         ZStack {
             NavigationView {
                 VStack {
-                    VStack(alignment: .leading, spacing: 30) {
-                        Spacer().frame(height: screenSize.height/5)
+                    VStack(alignment: .leading, spacing: 22) {
+                        Spacer().frame(height: screenSize.height/6)
                         Text("SIGN UP")
                             .font(.custom("Poppins-Regular", size: 28))
                             .foregroundColor(.white)
@@ -51,25 +52,36 @@ struct SignUpView: View {
                                     customButton(title: "SIGN UP",
                                                  backgroundColor: Color("AppGreen"),
                                                  width: screenSize.width/1.2,
-                                                 height: 50,
-                                                 action: self.viewModel.signUp)
+                                                 height: 48,
+                                                 action: {
+                                                    if (viewModel.email.isEmpty
+                                                            || viewModel.username.isEmpty
+                                                            || viewModel.password.isEmpty
+                                                            || viewModel.email.isEmpty
+                                                            || viewModel.confirmPassword.isEmpty
+                                                            || viewModel.phoneNumber.isEmpty) {
+                                                        print("All Empty")
+                                                        self.allFieldsDoneError = true
+                                                        self.viewModel.statusViewModel = StatusViewModel(title: "Error", message: "Please enter details in all fields")
+                                                    } else {
+                                                        self.viewModel.signUp()
+                                                    }
+                                                 })
                                         .padding(.horizontal)
                                     Spacer()
                                 }
-                                
                                 Spacer()
                             }.padding(.horizontal, 25)
-                            VStack(alignment: .center, spacing: 0) {
-                                
-                            }
                         }
                     }
                     Spacer()
                 }.alert(item: self.$viewModel.statusViewModel) { status in
                     Alert(title: Text(status.title),
-                          message: Text("Verification email has been sent! We will verify the phone number now."),
+                          message: Text(status.message),
                           dismissButton: .default(Text("OK"), action: {
-                            self.verifyActive = true
+                            if status.title != "Error" {
+                                self.verifyActive = true
+                            }
                           }))
                 }
                 .edgesIgnoringSafeArea(.all)

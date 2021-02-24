@@ -69,7 +69,6 @@
 		F75BDB8E25C715E0002CE741 /* AuthViewsBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDB8D25C715E0002CE741 /* AuthViewsBackground.swift */; };
 		F75BDB9625C73AFA002CE741 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */; };
 		F765C63725C992D50050D9F1 /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F765C63625C992D50050D9F1 /* PasswordResetView.swift */; };
-		F765C63C25C995A50050D9F1 /* PassAndOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F765C63B25C995A50050D9F1 /* PassAndOTPView.swift */; };
 		F76AD4C225CB1D96004A8F93 /* PhoneVerificationOTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76AD4C125CB1D96004A8F93 /* PhoneVerificationOTP.swift */; };
 		F7BB88B325C8275A0077F5ED /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */; };
 		F7BB88B725C82AF60077F5ED /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB88B625C82AF60077F5ED /* OTPView.swift */; };
@@ -150,7 +149,6 @@
 		F75BDB8D25C715E0002CE741 /* AuthViewsBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewsBackground.swift; sourceTree = "<group>"; };
 		F75BDB9525C73AFA002CE741 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F765C63625C992D50050D9F1 /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
-		F765C63B25C995A50050D9F1 /* PassAndOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassAndOTPView.swift; sourceTree = "<group>"; };
 		F76AD4C125CB1D96004A8F93 /* PhoneVerificationOTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationOTP.swift; sourceTree = "<group>"; };
 		F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
 		F7BB88B625C82AF60077F5ED /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -351,7 +349,6 @@
 				30127DCE24DE506300576F65 /* SignInView.swift */,
 				F7BB88B225C8275A0077F5ED /* EmailVerificationView.swift */,
 				F765C63625C992D50050D9F1 /* PasswordResetView.swift */,
-				F765C63B25C995A50050D9F1 /* PassAndOTPView.swift */,
 				F76AD4C125CB1D96004A8F93 /* PhoneVerificationOTP.swift */,
 			);
 			path = "Auth Views";
@@ -594,7 +591,6 @@
 				F74CF23225D4473E007B2958 /* SupportModalView.swift in Sources */,
 				F74CF22C25D423C3007B2958 /* GeneralCardInfoView.swift in Sources */,
 				F7CCEA7125C90F3600F6190A /* FirestoreService.swift in Sources */,
-				F765C63C25C995A50050D9F1 /* PassAndOTPView.swift in Sources */,
 				30F0AF9024E967920084CE6E /* StatusViewModel.swift in Sources */,
 				30D8C60224E818D400CB0858 /* SignUpView.swift in Sources */,
 				30127DCD24DE506300576F65 /* SceneDelegate.swift in Sources */,

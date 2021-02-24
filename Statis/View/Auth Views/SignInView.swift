@@ -92,22 +92,28 @@ struct SignInView: View {
                     }
                 }
                 Spacer()
-                Button(action: {
-                    self.pushActive = true
-                }) {
-                    VStack {
-                        Text("Don't have an account?")
-                            .font(.custom("Poppins-Regular", size: 18))
-                            .foregroundColor(.gray)
-                        Text("SIGN UP")
-                            .autocapitalization(.allCharacters)
-                            .font(.custom("Poppins-Regular", size: 18))
-                            .foregroundColor(Color("AppGreen"))
+//                HalfCircle2().foregroundColor(.red)
+                ZStack {
+//                    HalfCircle2().foregroundColor(.red)
+                    Button(action: {
+                        self.pushActive = true
+                    }) {
+                        VStack(spacing: 2) {
+                            Text("Don't have an account?")
+                                .font(.custom("Poppins-Regular", size: 18))
+                                .foregroundColor(.gray)
+                            Text("SIGN UP")
+                                .autocapitalization(.allCharacters)
+                                .font(.custom("Poppins-Regular", size: 18))
+                                .foregroundColor(Color("AppGreen"))
+                        }
                     }
+                    .background(HalfCircle2().foregroundColor(.white).frame(width: screenSize.width))
                 }
+                
             }.alert(item: self.$viewModel.statusViewModel) { status in
                 Alert(title: Text(status.title),
-                      message: Text(status.message),
+                      message: Text(status.title == "Error" ? "Email or Password is incorrect" : status.message),
                       dismissButton: .default(Text("OK"), action: {
                         if status.title == "Successful" {
                             self.homeActive = true

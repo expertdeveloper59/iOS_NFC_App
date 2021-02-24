@@ -96,18 +96,22 @@ class AuthService: AuthAPI {
         return Future<Bool?, Never> { promise in
             
             self.firestoreVM.getUser(email) { phoneNumber in
-                print(phoneNumber)
-                PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
-                    if let error = error {
-                        print("Err0r: ", error.localizedDescription)
-                        promise(.success(false))
-                        
-                    } else {
-                        print("Verification ID", verificationID ?? "None!")
-                        if let verificationID = verificationID {
-                            UserDefaults.standard.setValue(verificationID, forKey: "verifId")
-                            promise(.success(true))
-                        }                 }
+                if phoneNumber == "nil" {
+                    print("User not found")
+                    promise(.success(false))
+                } else {
+                    PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
+                        if let error = error {
+                            print("Err0r: ", error.localizedDescription)
+                            promise(.success(false))
+                            
+                        } else {
+                            print("Verification ID", verificationID ?? "None!")
+                            if let verificationID = verificationID {
+                                UserDefaults.standard.setValue(verificationID, forKey: "verifId")
+                                promise(.success(true))
+                            }                 }
+                    }
                 }
             }
         }

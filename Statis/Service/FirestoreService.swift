@@ -34,10 +34,12 @@ class FirestoreViewModel: ObservableObject {
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    if let snaphshot = querySnapshot, let document = snaphshot.documents[0].data()["phoneNumber"] {
+                    if let snaphshot = querySnapshot, snaphshot.documents.count > 0, let document = snaphshot.documents[0].data()["phoneNumber"] {
                         if let phone = document as? String {
                             completion(phone)
                         }
+                    } else {
+                        completion("nil")
                     }
                 }
             }
