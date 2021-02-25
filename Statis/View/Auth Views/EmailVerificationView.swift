@@ -54,7 +54,7 @@ struct EmailVerificationView: View {
             Spacer()
         }.alert(item: self.$viewModel.statusViewModel) { status in
             Alert(title: Text(status.title),
-                  message: Text("OTP has been sent"),
+                  message: Text("If provided email is registered, an OTP has been sent on it."),
                   dismissButton: .default(Text("OK"), action: {
                     if status.title == "Successful" {
                         self.pushActive = true

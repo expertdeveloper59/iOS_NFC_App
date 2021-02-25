@@ -38,7 +38,7 @@ struct OTPView: View {
                         .padding(.leading, 25)
                         Spacer()
                     }
-                    VStack(alignment: .center, spacing: 25) {
+                    VStack(alignment: .center, spacing: 15) {
                         PasscodeField(originalText: $resetCode)
                             .padding(.bottom)
                         
@@ -82,7 +82,7 @@ struct OTPView: View {
         .edgesIgnoringSafeArea(.all)
         .alert(item: self.$viewModel.statusViewModel) { status in
             Alert(title: Text(status.title),
-                  message: Text(status.message),
+                  message: Text(status.title == "Error" ? "OTP did not work" : status.message),
                   dismissButton: .default(Text("OK"), action: { presentationMode.wrappedValue.dismiss()
                   }))
         }

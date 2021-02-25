@@ -29,7 +29,7 @@ struct AuthViewsBackground: View {
             if (isSignInScreen) {
                 VStack {
                     Spacer()
-                    HalfCircle()
+//                    HalfCircle()
                 }
             }
             VStack(alignment: .trailing) {
@@ -63,13 +63,25 @@ struct HalfCircle: View {
     }
 }
 
+struct HalfCircle2: Shape {
+    let screenSize = UIScreen.main.bounds
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: rect.minX, y: rect.maxY))
+        path.addCurve(to: CGPoint(x: rect.maxX, y: rect.maxY), control1: CGPoint(x: rect.midX, y: -rect.maxY*2), control2: .init(x: rect.maxX, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
+        path.closeSubpath()
+        return path
+    }
+}
+
 struct TiltedCircle: View {
     let screenSize = UIScreen.main.bounds
     var body: some View {
         Path { path in
             path.move(to: CGPoint(x: -screenSize.width/4, y: screenSize.height/10))
-            path.addCurve(to: CGPoint(x: screenSize.width+10, y: screenSize.height/12), control1: CGPoint(x: screenSize.width/3.2, y: screenSize.height/2.8), control2: .init(x: screenSize.width+10, y: screenSize.height/12))
-            path.addLine(to: .init(x: screenSize.width, y: 0))
+            path.addCurve(to: CGPoint(x: screenSize.width+20, y: screenSize.height/12), control1: CGPoint(x: screenSize.width/3.2, y: screenSize.height/2.8), control2: .init(x: screenSize.width+10, y: screenSize.height/12))
+            path.addLine(to: .init(x: screenSize.width+20, y: 0))
             path.addLine(to: .init(x: 0, y: 0))
             path.addLine(to: CGPoint(x: -screenSize.width/4, y: screenSize.height/10))
         }
@@ -80,6 +92,7 @@ struct TiltedCircle: View {
 
 struct SignupBG_Previews: PreviewProvider {
     static var previews: some View {
-        AuthViewsBackground()
+        HalfCircle2()
+            .foregroundColor(.green)
     }
 }

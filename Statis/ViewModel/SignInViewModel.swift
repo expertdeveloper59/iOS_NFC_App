@@ -52,6 +52,7 @@ class SignInViewModel: ObservableObject {
         authAPI.initiatePasswordReset(email: email)
             .receive(on: RunLoop.main)
             .map(verifResultMapper)
+            .replaceError(with: StatusViewModel.errorStatus)
             .assign(to: \.statusViewModel, on: self)
             .store(in: &cancellableBag)
     }
