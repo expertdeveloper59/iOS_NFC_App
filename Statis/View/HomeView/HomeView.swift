@@ -78,7 +78,7 @@ struct HomeView: View {
             DrawerView(isOpen: self.$isDrawerOpen)
             
 //            FilterModalView(title: .constant(""), batch: .constant(""), management: .constant(""))
-            SupportModalView()
+            //SupportModalView()
         }.background(Color("CloudyWhite").edgesIgnoringSafeArea(.all))
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(true)
