@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>560914849521-4ao7uimfmlcdmq950m36l8hl987ir853.apps.googleusercontent.com</string>
+	<string>560914849521-fqf6jrerki3iebmur0oeu757jp7ug85e.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.560914849521-4ao7uimfmlcdmq950m36l8hl987ir853</string>
+	<string>com.googleusercontent.apps.560914849521-fqf6jrerki3iebmur0oeu757jp7ug85e</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCnNVsr3u90FnyRPOQ8wbYcnZhS-1TBITI</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.fatehkhann.statis</string>
+	<string>com.satatis.app</string>
 	<key>PROJECT_ID</key>
 	<string>nfcapp-41b08</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:560914849521:ios:6ebeee1fafd8ac08b39350</string>
+	<string>1:560914849521:ios:95524a7c48f5c492b39350</string>
+	<key>DATABASE_URL</key>
+	<string>https://nfcapp-41b08-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>
