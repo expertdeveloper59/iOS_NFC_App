@@ -31,7 +31,7 @@ struct SignInView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: SignUpView(state: viewModel.state),
+                NavigationLink(destination: SignUpView(state: viewModel.state, signUpActive: true),
                                isActive: self.$pushActive) {
                     EmptyView()
                 }.navigationBarHidden(true)
@@ -117,6 +117,8 @@ struct SignInView: View {
                       dismissButton: .default(Text("OK"), action: {
                         if status.title == "Successful" {
                             self.homeActive = true
+                            self.viewModel.changeProcesssingState()
+                        } else {
                             self.viewModel.changeProcesssingState()
                         }
                       }))

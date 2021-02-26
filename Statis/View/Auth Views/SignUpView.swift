@@ -16,7 +16,7 @@ struct SignUpView: View {
     @State var allFieldsDoneError = false
     let screenSize = UIScreen.main.bounds
     
-    init(state: AppState) {
+    init(state: AppState, signUpActive: Bool) {
         self.viewModel = SignUpViewModel(authAPI: AuthService(), state: state)
     }
     
@@ -92,6 +92,19 @@ struct SignUpView: View {
                 presentationMode.wrappedValue.dismiss()
             }) {
                 PhoneVerificationOTPView(state: self.viewModel.state)
+            }
+            VStack {
+                HStack {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .foregroundColor(.black)
+                    }
+                    Spacer()
+                }
+                .padding()
+                Spacer()
             }
         }
         .navigationBarTitle("", displayMode: .inline)
