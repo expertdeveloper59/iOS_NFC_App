@@ -96,6 +96,7 @@ struct SignUpView: View {
             VStack {
                 HStack {
                     Button(action: {
+                        //
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "arrow.left")
