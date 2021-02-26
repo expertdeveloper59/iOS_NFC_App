@@ -53,7 +53,7 @@ struct PasswordResetView: View {
                 Spacer()
             }.alert(item: self.$viewModel.statusViewModel) { status in
                 Alert(title: Text(status.title),
-                      message: Text(status.title == "Error" ? "Email was not found" : "An OTP has been sent to your registered phon"),
+                      message: Text(status.title == "Error" ? "Email was not found" : "If this email is registered with us, an OTP has been sent to your registered phone"),
                       dismissButton: .default(Text("OK"), action: {
                         if status.title == "Successful" {
                             self.OTPpushActive = true
