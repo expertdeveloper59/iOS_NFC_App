@@ -11,6 +11,7 @@ import FirebaseAuth
 
 struct DrawerContent: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var showSuccess = false
     var body: some View {
         ZStack {
             Color.white
@@ -50,7 +51,7 @@ struct DrawerContent: View {
                     SidebarMenuItem(imageName: "filter", title: "Filter / Sorting") {
                         
                     }
-                    Spacer()
+//                    Spacer()
                     Button(action: {
                         do {
                             try Auth.auth().signOut()
@@ -68,6 +69,9 @@ struct DrawerContent: View {
                 Spacer()
                 
             }
+            .alert(isPresented: self.$showSuccess, content: {
+                .init(title: Text("Logout Successfuly"))
+            })
         }
     }
 }
