@@ -18,6 +18,10 @@ struct SignUpView: View {
     
     init(state: AppState, signUpActive: Bool) {
         self.viewModel = SignUpViewModel(authAPI: AuthService(), state: state)
+        UINavigationBar.appearance().barTintColor = .clear
+        UINavigationBar.appearance().tintColor = .clear
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
     
     var body: some View {
@@ -48,6 +52,7 @@ struct SignUpView: View {
                                     CustomTextField(placeHolderText: "Confirm Password",
                                                     text: $viewModel.confirmPassword,
                                                     isPasswordType: true, symbolName: "lock.fill")
+                                    
                                     Spacer()
                                     customButton(title: "SIGN UP",
                                                  backgroundColor: Color("AppGreen"),
@@ -63,6 +68,9 @@ struct SignUpView: View {
                                                         print("All Empty")
                                                         self.allFieldsDoneError = true
                                                         self.viewModel.statusViewModel = StatusViewModel(title: "Error", message: "Please enter details in all fields")
+                                                    } else if (viewModel.password != viewModel.confirmPassword) {
+                                                        self.allFieldsDoneError = true
+                                                        self.viewModel.statusViewModel = StatusViewModel(title: "Error", message: "Passwords do not match")
                                                     } else {
                                                         self.viewModel.signUp()
                                                     }
@@ -93,24 +101,23 @@ struct SignUpView: View {
             }) {
                 PhoneVerificationOTPView(state: self.viewModel.state)
             }
-            VStack {
-                HStack {
-                    Button(action: {
-                        //
-                        self.presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Image(systemName: "arrow.left")
-                            .foregroundColor(.black)
-                    }
-                    Spacer()
-                }
-                .padding()
-                Spacer()
-            }
         }
         .navigationBarTitle("", displayMode: .inline)
-        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: btnBack)
         
         
+    }
+    
+    var btnBack : some View { Button(action: {
+        self.presentationMode.wrappedValue.dismiss()
+    }) {
+        HStack {
+            Image(systemName: "arrow.left")
+                .foregroundColor(.black)
+            Text("Go back")
+        }
+        .background(Color.clear)
+    }
     }
 }

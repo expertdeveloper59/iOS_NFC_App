@@ -187,6 +187,7 @@ class AuthService: AuthAPI {
                         print("Error in AuthService: ", error.localizedDescription)
                     }
                     Auth.auth().currentUser?.updatePassword(to: password) { (error) in
+                        print("update executed")
                         if let error = error {
                             print(error.localizedDescription)
                             promise(.success(nil))

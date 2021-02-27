@@ -13,6 +13,7 @@ import FBSDKLoginKit
 import FirebaseAuth
 
 struct PasswordResetView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var OTPpushActive = false
     @ObservedObject private var viewModel: SignInViewModel
     
@@ -20,6 +21,10 @@ struct PasswordResetView: View {
     
     init(state: AppState) {
         self.viewModel = SignInViewModel(authAPI: AuthService(), state: state)
+        UINavigationBar.appearance().barTintColor = .clear
+        UINavigationBar.appearance().tintColor = .clear
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
     
     var body: some View {
@@ -61,6 +66,21 @@ struct PasswordResetView: View {
                       }))
             }
             .background(AuthViewsBackground(isSignInScreen: false, backgroundImage: "forgot-password"))
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: btnBack)
+        }
+    }
+    
+    var btnBack : some View { Button(action: {
+        self.presentationMode.wrappedValue.dismiss()
+        }) {
+            HStack {
+                Image(systemName: "arrow.left")
+                .foregroundColor(.black)
+                Text("Go back")
+            }
+            .background(Color.clear)
         }
     }
     
