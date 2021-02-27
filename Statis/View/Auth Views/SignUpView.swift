@@ -68,9 +68,15 @@ struct SignUpView: View {
                                                         print("All Empty")
                                                         self.allFieldsDoneError = true
                                                         self.viewModel.statusViewModel = StatusViewModel(title: "Error", message: "Please enter details in all fields")
+                                                    } else if (!self.viewModel.phoneNumber.isValidPhoneNumber()) {
+                                                        self.allFieldsDoneError = true
+                                                        self.viewModel.statusViewModel = StatusViewModel(title: "Error", message: "Invlaid Phone number.")
                                                     } else if (viewModel.password != viewModel.confirmPassword) {
                                                         self.allFieldsDoneError = true
                                                         self.viewModel.statusViewModel = StatusViewModel(title: "Error", message: "Passwords do not match")
+                                                    } else if (viewModel.password.count < 6) {
+                                                        self.allFieldsDoneError = true
+                                                        self.viewModel.statusViewModel = StatusViewModel(title: "Error", message: "Password must be 6 or more characters")
                                                     } else {
                                                         self.viewModel.signUp()
                                                     }
