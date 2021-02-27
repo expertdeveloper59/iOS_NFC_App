@@ -6,6 +6,7 @@
 //  Copyright © Statis. All rights reserved.
 //
 import SwiftUI
+import FirebaseAuth
 
 struct SplashView: View {
     @State var isActive:Bool = false
@@ -14,7 +15,11 @@ struct SplashView: View {
     var body: some View {
         VStack {
             if self.isActive {
-                SignInView(state: state)
+                if (Auth.auth().currentUser != nil) {
+                    HomeView(isDrawerOpen: false, state: state)
+                } else {
+                    SignInView(state: state)
+                }
             } else {
                 ZStack {
                     Color(UIConfiguration.tintColor)

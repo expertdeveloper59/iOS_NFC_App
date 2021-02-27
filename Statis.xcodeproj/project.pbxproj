@@ -29,7 +29,6 @@
 		30F0AF9224E976410084CE6E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AF9124E976410084CE6E /* SplashView.swift */; };
 		30F0AF9824E9868D0084CE6E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AF9724E9868D0084CE6E /* SignInViewModel.swift */; };
 		30F0AF9B24E989020084CE6E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AF9A24E989020084CE6E /* CustomTextField.swift */; };
-		F7178DD925CC62A4009103AB /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D8C5EC24E7755600CB0858 /* WelcomeView.swift */; };
 		F7178DEE25CC6CDB009103AB /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7178DDC25CC6CCC009103AB /* Poppins-Light.ttf */; };
 		F7178DEF25CC6CDB009103AB /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7178DDD25CC6CCD009103AB /* Poppins-Black.ttf */; };
 		F7178DF025CC6CDB009103AB /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7178DDE25CC6CCE009103AB /* Poppins-Thin.ttf */; };
@@ -90,7 +89,6 @@
 		30127DD624DE506500576F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30127DD824DE506500576F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30A39BEC24DF999900EE7E2E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		30D8C5EC24E7755600CB0858 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		30D8C5EE24E77C8000CB0858 /* CustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifier.swift; sourceTree = "<group>"; };
 		30D8C5F024E77CFB00CB0858 /* UIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfiguration.swift; sourceTree = "<group>"; };
 		30D8C5F224E77DDE00CB0858 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 				F7178DDB25CC6CA6009103AB /* Fonts */,
 				F75BDB8C25C715C5002CE741 /* Backgrounds */,
 				30F0AF9124E976410084CE6E /* SplashView.swift */,
-				30D8C5EC24E7755600CB0858 /* WelcomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -571,7 +568,6 @@
 				30DDE0C124EC2AD300208D32 /* AppState.swift in Sources */,
 				F76AD4C225CB1D96004A8F93 /* PhoneVerificationOTP.swift in Sources */,
 				F74CF22925D4110A007B2958 /* SettingsView.swift in Sources */,
-				F7178DD925CC62A4009103AB /* WelcomeView.swift in Sources */,
 				30127DCB24DE506300576F65 /* AppDelegate.swift in Sources */,
 				30DDE0B924EABC9700208D32 /* User.swift in Sources */,
 				30F0AF8C24E92D160084CE6E /* AuthAPI.swift in Sources */,
@@ -759,7 +755,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fatehkhann.statis;
+				PRODUCT_BUNDLE_IDENTIFIER = com.satatis.app;
 				PRODUCT_NAME = Statis;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -783,7 +779,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fatehkhann.statis;
+				PRODUCT_BUNDLE_IDENTIFIER = com.satatis.app;
 				PRODUCT_NAME = Statis;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

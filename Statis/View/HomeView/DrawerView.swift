@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct DrawerContent: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -49,8 +50,23 @@ struct DrawerContent: View {
                     SidebarMenuItem(imageName: "filter", title: "Filter / Sorting") {
                         
                     }
+                    Spacer()
+                    Button(action: {
+                        do {
+                            try Auth.auth().signOut()
+                            presentationMode.wrappedValue.dismiss()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }) {
+                        Text("Logout")
+                            .font(.custom("Poppins-Medium", size: 15))
+                            .foregroundColor(Color("BlackTanText"))
+                    }
+                    .padding()
                 }
                 Spacer()
+                
             }
         }
     }
