@@ -11,6 +11,7 @@ import FirebaseAuth
 
 struct DrawerContent: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @ObservedObject var state: AppState
     @State var showSuccess = false
     var body: some View {
         ZStack {
@@ -55,7 +56,7 @@ struct DrawerContent: View {
                     Button(action: {
                         do {
                             try Auth.auth().signOut()
-                            presentationMode.wrappedValue.dismiss()
+                            self.showSuccess = true
                         } catch {
                             print(error.localizedDescription)
                         }
@@ -70,7 +71,10 @@ struct DrawerContent: View {
                 
             }
             .alert(isPresented: self.$showSuccess, content: {
-                .init(title: Text("Logout Successfuly"))
+                .init(title: Text("Logout"), message: Text("User has been logged out successfuly"), dismissButton: .default(Text("OK"), action: {
+                    state.user = nil
+                    self.presentationMode.wrappedValue.dismiss()
+                }))
             })
         }
     }
@@ -107,10 +111,11 @@ struct SidebarMenuItem: View {
 struct DrawerView: View {
     private let width = UIScreen.main.bounds.width - 100
     @Binding var isOpen: Bool
+    @ObservedObject var state: AppState
     
     var body: some View {
         HStack {
-            DrawerContent()
+            DrawerContent(state: state)
                 .padding(.top)
                 .frame(width: self.width)
                 .offset(x: self.isOpen ? 0 : -self.width)

@@ -75,7 +75,7 @@ struct HomeView: View {
                 BottomButtons()
             }.background(Color("CloudyWhite").edgesIgnoringSafeArea(.all))
             
-            DrawerView(isOpen: self.$isDrawerOpen)
+            DrawerView(isOpen: self.$isDrawerOpen, state: self.state)
             
 //            FilterModalView(title: .constant(""), batch: .constant(""), management: .constant(""))
             //SupportModalView()

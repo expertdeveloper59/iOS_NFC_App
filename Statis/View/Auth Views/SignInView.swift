@@ -118,6 +118,7 @@ struct SignInView: View {
                         if status.title == "Successful" {
                             self.homeActive = true
                             self.viewModel.changeProcesssingState()
+                            appState.user = User(id: "", email: "")
                         } else {
                             self.viewModel.changeProcesssingState()
                         }
