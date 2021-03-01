@@ -14,4 +14,5 @@ struct User {
     let phoneNumber: String = ""
     let username: String = ""
     let email: String
+    var isEmailVerified: Bool = false
 }

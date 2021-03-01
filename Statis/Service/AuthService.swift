@@ -120,9 +120,13 @@ class AuthService: AuthAPI {
     
     func signUp(email: String, password: String, phoneNo: String) -> Future<User?, Never> {
         return Future<User?, Never> { promise in
-            Auth.auth().createUser(withEmail: email, password: password) { (authResult, _) in
+            Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
                 guard let id = authResult?.user.providerID,
                       let email = authResult?.user.email else {
+                    if let error = error {
+                        print("Err0r: ", error.localizedDescription)
+                        UserDefaults.standard.set(error.localizedDescription, forKey: "RegError")
+                    }
                     promise(.success(nil))
                     return
                 }
@@ -131,6 +135,7 @@ class AuthService: AuthAPI {
                     PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in
                         if let error = error {
                             print("Err0r: ", error.localizedDescription)
+                            UserDefaults.standard.set(error.localizedDescription, forKey: "RegError")
                             promise(.success(nil))
                             
                         } else {

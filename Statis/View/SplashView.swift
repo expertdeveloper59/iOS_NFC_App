@@ -15,7 +15,7 @@ struct SplashView: View {
     var body: some View {
         VStack {
             if self.isActive {
-                if (state.user != nil) {
+                if ((state.user?.isEmailVerified) != nil) {
                     HomeView(isDrawerOpen: false, state: state)
                 } else {
                     SignInView(state: state)
@@ -31,8 +31,9 @@ struct SplashView: View {
             }
         }
         .onAppear {
-            if (Auth.auth().currentUser != nil) {
-                state.user = User(id: "123", email: "dummy")
+            if ((Auth.auth().currentUser?.isEmailVerified) != nil) {
+                state.user = User(id: "", email: "")
+                state.user?.isEmailVerified = true
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 withAnimation {

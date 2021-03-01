@@ -60,7 +60,12 @@ extension SignUpViewModel {
             state.currentUser = user
             return StatusViewModel.signUpSuccessStatus
         } else {
-            return StatusViewModel.errorStatus
+            let errorStatus = StatusViewModel(title: "Error", message: "")
+            if let errorMsg = UserDefaults.standard.value(forKey: "RegError") as? String
+            {
+                errorStatus.message = errorMsg
+            }
+            return errorStatus
         }
     }
 }
