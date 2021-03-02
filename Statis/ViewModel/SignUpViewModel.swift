@@ -29,19 +29,16 @@ class SignUpViewModel: ObservableObject {
     }
     
     func signUp() {
-        if password == confirmPassword {
+        if (email.isEmpty || username.isEmpty || password.isEmpty || fullName.isEmpty || phoneNumber.isEmpty) {
+            statusViewModel = StatusViewModel(title: "Error", message: "Please fill all fields")
+        } else if password != confirmPassword {
+            statusViewModel = StatusViewModel(title: "Error", message: "Passwords do not match.")
+        } else {
             self.requestProcessing = true
             authAPI.signUp(email: email, password: password, phoneNo: phoneNumber)
                 .receive(on: RunLoop.main)
                 .map(resultMapper)
                 .replaceError(with: StatusViewModel.errorStatus)
-                .assign(to: \.statusViewModel, on: self)
-                .store(in: &cancellableBag)
-        } else {
-            authAPI.signUp(email: "email", password: "password", phoneNo: phoneNumber)
-                .receive(on: RunLoop.main)
-                .map(resultMapper)
-                .replaceError(with: StatusViewModel.validationStatus)
                 .assign(to: \.statusViewModel, on: self)
                 .store(in: &cancellableBag)
         }

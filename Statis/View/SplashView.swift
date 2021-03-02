@@ -31,7 +31,7 @@ struct SplashView: View {
             }
         }
         .onAppear {
-            if ((Auth.auth().currentUser?.isEmailVerified) != nil) {
+            if ((Auth.auth().currentUser?.isEmailVerified) != nil && (Auth.auth().currentUser?.isEmailVerified)! == true) {
                 state.user = User(id: "", email: "")
                 state.user?.isEmailVerified = true
             }

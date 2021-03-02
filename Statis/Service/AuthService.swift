@@ -122,10 +122,10 @@ class AuthService: AuthAPI {
         return Future<User?, Never> { promise in
             Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
                 guard let id = authResult?.user.providerID,
-                      let email = authResult?.user.email else {
+                    let email = authResult?.user.email else {
                     if let error = error {
                         print("Err0r: ", error.localizedDescription)
-                        UserDefaults.standard.set(error.localizedDescription, forKey: "RegError")
+                        UserDefaults.standard.set(error.localizedDescription == "TOO_SHORT" ? "Phone number is too short" : error.localizedDescription, forKey: "RegError")
                     }
                     promise(.success(nil))
                     return
