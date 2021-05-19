@@ -298,7 +298,7 @@ struct BottomButtons: View {
                 Image(systemName: "arrow.down.circle")
                     .resizable()
                     .frame(width: 30, height: 30)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("AppGreen"))
             }
             Spacer()
             QrCodeButton(title: "Scan") {
@@ -312,7 +312,7 @@ struct BottomButtons: View {
                 Image(systemName: "arrow.up.circle")
                     .resizable()
                     .frame(width: 30, height: 30)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("AppGreen"))
             }
         }
         .padding(.horizontal)
