@@ -46,31 +46,34 @@ struct HomeView: View {
                             }
                         }
                         
-                        ForEach(1...3, id: \.self) { index in
+                        ForEach(1...4, id: \.self) { index in
                             BusinessCard(width: screenBounds.width/1.4, height: screenBounds.height/4)
+                                .onTapGesture {
+                                    print("Card Number \(index+1) is tapped")
+                                }
                         }
                     }
                 }
                 
                 VStack {
                     HomeMenuItem(image: "creditcard", title: "Wallet", menuColor: Color.white) {
-                        
+                        print("Menu Item Tapped")
                     }
                     HomeMenuItem(image: "person.crop.square", title: "Contacts", menuColor: Color.white) {
-                        
+                        print("Menu Item Tapped")
                     }
                     HomeMenuItem(image: "person", title: "Profile", menuColor: Color.white) {
-                        
+                        print("Menu Item Tapped")
                     }
                     HomeMenuItem(image: "gear", title: "Settings", menuColor: Color.white) {
-                        
+                        print("Menu Item Tapped")
                     }
                 }
                 Spacer()
-                QrCodeButton(title: "Scan") {
-                    //
-                }
-                .padding(.top)
+//                QrCodeButton(title: "Scan") {
+//                    print("Scan Tapped")
+//                }
+//                .padding(.top)
                 Spacer()
                 BottomButtons()
             }.background(Color("CloudyWhite").edgesIgnoringSafeArea(.all))
@@ -86,26 +89,54 @@ struct HomeView: View {
 }
 
 struct SearchTextField: View {
+    @State var text = ""
     var body: some View {
         VStack {
             VStack {
-                TextField("Search by username", text: .constant(""))
-                    .font(.custom("Poppins-Regular", size: 18))
-                    .frame(height: 55)
-                    .background(ZStack {
-                        RoundedRectangle(cornerRadius: 7).fill(Color("CloudyWhite"))
-                        HStack {
-                            Spacer()
-                            VStack {
-                                Image(systemName: "magnifyingglass")
-                                    .foregroundColor(.white)
-                                    .padding(8)
-                            }
-                            .background(Color("AppGreen"))
-                            .clipShape(Circle())
-                            .padding(.leading, 4)
+                HStack {
+                    TextField("Search by username", text: self.$text, onCommit: {
+                        print("Searched for \(self.text)")
+                      })
+                        .font(.custom("Poppins-Regular", size: 18))
+                        .frame(height: 55)
+                    .padding(.leading)
+                    Button(action: {
+                        print("Searched for \(self.text)")
+                    }) {
+                        VStack {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.white)
+                                .padding(8)
                         }
-                    })
+                        .background(Color("AppGreen"))
+                        .clipShape(Circle())
+                        .padding(.leading, 4)
+                    }
+                }
+                .background(RoundedRectangle(cornerRadius: 7).fill(Color("CloudyWhite")))
+//                TextField("Search by username", text: self.$text, onCommit: {
+//                    print("Searched for \(self.text)")
+//                  })
+//                    .font(.custom("Poppins-Regular", size: 18))
+//                    .frame(height: 55)
+//                    .overlay(ZStack {
+//                        RoundedRectangle(cornerRadius: 7).fill(Color("CloudyWhite"))
+//                        HStack {
+//                            Spacer()
+//                            Button(action: {
+//                                print("Searched for \(self.text)")
+//                            }) {
+//                                VStack {
+//                                    Image(systemName: "magnifyingglass")
+//                                        .foregroundColor(.white)
+//                                        .padding(8)
+//                                }
+//                                .background(Color("AppGreen"))
+//                                .clipShape(Circle())
+//                                .padding(.leading, 4)
+//                            }
+//                        }
+//                    })
             }
         }
     }
@@ -136,9 +167,17 @@ struct BusinessCard: View {
                     }
                 }
                 Spacer()
-                Image("text_placeholder")
-                    .resizable()
-                    .frame(width: 92, height: 44)
+                VStack {
+                    Text("Name of Owner")
+                        .font(.custom("Poppins-Regular", size: 18))
+                        .foregroundColor(.white)
+                    Text("More Details")
+                        .font(.custom("Poppins-Regular", size: 16))
+                        .foregroundColor(.gray)
+                }
+//                Image("text_placeholder")
+//                    .resizable()
+//                    .frame(width: 92, height: 44)
             }
             .padding([.horizontal, .top])
             
@@ -207,6 +246,9 @@ struct HomeMenuItem: View {
             .background(RoundedRectangle(cornerRadius: 8).fill(menuColor))
             .padding([.top, .horizontal])
         }
+        .onTapGesture {
+            action()
+        }
     }
 }
 
@@ -249,20 +291,28 @@ struct QrCodeButton: View {
 
 struct BottomButtons: View {
     var body: some View {
-        HStack {
+        HStack(alignment: .center) {
             Button(action: {
-                //
+                print("Read Tapped")
             }) {
-                Image("sortIcon")
+                Image(systemName: "arrow.down.circle")
+                    .resizable()
                     .frame(width: 30, height: 30)
+                    .foregroundColor(.black)
             }
             Spacer()
+            QrCodeButton(title: "Scan") {
+                print("Scan Tapped")
+            }
+            .padding(.top)
+            Spacer()
             Button(action: {
-                //
+                print("Write Tapped")
             }) {
-                Image("sortIcon")
+                Image(systemName: "arrow.up.circle")
+                    .resizable()
                     .frame(width: 30, height: 30)
-                    .rotationEffect(.degrees(180))
+                    .foregroundColor(.black)
             }
         }
         .padding(.horizontal)
