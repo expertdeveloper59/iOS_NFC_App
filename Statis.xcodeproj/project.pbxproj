@@ -50,6 +50,7 @@
 		F71C8A1125D6AB020019CBC0 /* ContactDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C8A1025D6AB020019CBC0 /* ContactDetailsView.swift */; };
 		F71C8A1425D6D6840019CBC0 /* AboutStatisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C8A1325D6D6840019CBC0 /* AboutStatisView.swift */; };
 		F71C8A1725D6F6F40019CBC0 /* StatisProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C8A1625D6F6F40019CBC0 /* StatisProfile.swift */; };
+		F72C956E26569E24000CB64B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72C956D26569E24000CB64B /* HomeViewModel.swift */; };
 		F748886825CE75D900799859 /* CardDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748886725CE75D800799859 /* CardDataViewModel.swift */; };
 		F748886D25CE763000799859 /* CardParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748886C25CE763000799859 /* CardParentView.swift */; };
 		F748887425CE835600799859 /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748887325CE835600799859 /* FloatingTextField.swift */; };
@@ -129,6 +130,7 @@
 		F71C8A1025D6AB020019CBC0 /* ContactDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsView.swift; sourceTree = "<group>"; };
 		F71C8A1325D6D6840019CBC0 /* AboutStatisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutStatisView.swift; sourceTree = "<group>"; };
 		F71C8A1625D6F6F40019CBC0 /* StatisProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisProfile.swift; sourceTree = "<group>"; };
+		F72C956D26569E24000CB64B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F748886725CE75D800799859 /* CardDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataViewModel.swift; sourceTree = "<group>"; };
 		F748886C25CE763000799859 /* CardParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardParentView.swift; sourceTree = "<group>"; };
 		F748887325CE835600799859 /* FloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				30A39BEC24DF999900EE7E2E /* SignUpViewModel.swift */,
 				F748886725CE75D800799859 /* CardDataViewModel.swift */,
 				30F0AF9724E9868D0084CE6E /* SignInViewModel.swift */,
+				F72C956D26569E24000CB64B /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				F71C8A1425D6D6840019CBC0 /* AboutStatisView.swift in Sources */,
 				F74CF04F25CED44200B6D630 /* Question.swift in Sources */,
 				30F0AF9224E976410084CE6E /* SplashView.swift in Sources */,
+				F72C956E26569E24000CB64B /* HomeViewModel.swift in Sources */,
 				30DDE0C124EC2AD300208D32 /* AppState.swift in Sources */,
 				F76AD4C225CB1D96004A8F93 /* PhoneVerificationOTP.swift in Sources */,
 				F74CF22925D4110A007B2958 /* SettingsView.swift in Sources */,

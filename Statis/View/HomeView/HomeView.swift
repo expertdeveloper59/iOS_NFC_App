@@ -11,6 +11,7 @@ import SwiftUI
 struct HomeView: View {
     @State var isDrawerOpen: Bool = false
     @ObservedObject var state: AppState
+    @ObservedObject var homeViewModel = HomeViewModel()
     let screenBounds = UIScreen.main.bounds
     
     var body: some View {
@@ -24,7 +25,7 @@ struct HomeView: View {
                             Image("left_bar")
                         }
                         .padding(.horizontal)
-                        SearchTextField()
+                        SearchTextField(vm: self.homeViewModel)
                     }
                     .padding(.horizontal)
                     Text("Home")
@@ -38,7 +39,7 @@ struct HomeView: View {
                     HStack {
                         HStack {
                             Button(action: {
-                                
+                                self.homeViewModel.addNewCard()
                             }) {
                                 Image(systemName: "plus")
                                     .foregroundColor(Color("BlackTanText"))
@@ -47,26 +48,25 @@ struct HomeView: View {
                         }
                         
                         ForEach(1...4, id: \.self) { index in
-                            BusinessCard(width: screenBounds.width/1.4, height: screenBounds.height/4)
-                                .onTapGesture {
-                                    print("Card Number \(index+1) is tapped")
-                                }
+                            BusinessCard(width: screenBounds.width/1.4, height: screenBounds.height/4) {
+                                self.homeViewModel.cardDetailsTapped(index: index)
+                            }
                         }
                     }
                 }
                 
                 VStack {
                     HomeMenuItem(image: "creditcard", title: "Wallet", menuColor: Color.white) {
-                        print("Menu Item Tapped")
+                        self.homeViewModel.cardItemTapped()
                     }
                     HomeMenuItem(image: "person.crop.square", title: "Contacts", menuColor: Color.white) {
-                        print("Menu Item Tapped")
+                        self.homeViewModel.cardItemTapped()
                     }
                     HomeMenuItem(image: "person", title: "Profile", menuColor: Color.white) {
-                        print("Menu Item Tapped")
+                        self.homeViewModel.cardItemTapped()
                     }
                     HomeMenuItem(image: "gear", title: "Settings", menuColor: Color.white) {
-                        print("Menu Item Tapped")
+                        self.homeViewModel.cardItemTapped()
                     }
                 }
                 Spacer()
@@ -75,7 +75,7 @@ struct HomeView: View {
 //                }
 //                .padding(.top)
                 Spacer()
-                BottomButtons()
+                BottomButtons(vm: self.homeViewModel)
             }.background(Color("CloudyWhite").edgesIgnoringSafeArea(.all))
             
             DrawerView(isOpen: self.$isDrawerOpen, state: self.state)
@@ -90,18 +90,19 @@ struct HomeView: View {
 
 struct SearchTextField: View {
     @State var text = ""
+    let vm: HomeViewModel
     var body: some View {
         VStack {
             VStack {
                 HStack {
                     TextField("Search by username", text: self.$text, onCommit: {
-                        print("Searched for \(self.text)")
+                        self.vm.searchForCard(text: self.text)
                       })
                         .font(.custom("Poppins-Regular", size: 18))
                         .frame(height: 55)
                     .padding(.leading)
                     Button(action: {
-                        print("Searched for \(self.text)")
+                        self.vm.searchForCard(text: self.text)
                     }) {
                         VStack {
                             Image(systemName: "magnifyingglass")
@@ -145,6 +146,7 @@ struct SearchTextField: View {
 struct BusinessCard: View {
     let width: CGFloat
     let height: CGFloat
+    let completion: ()->()
     var body: some View {
         VStack {
             HStack {
@@ -192,6 +194,9 @@ struct BusinessCard: View {
         }
         .frame(width: width, height: height)
         .background(RoundedRectangle(cornerRadius: 14).fill(Color("AppOrange")))
+        .onTapGesture {
+            completion()
+        }
     }
 }
 
@@ -290,10 +295,11 @@ struct QrCodeButton: View {
 }
 
 struct BottomButtons: View {
+    let vm: HomeViewModel
     var body: some View {
         HStack(alignment: .center) {
             Button(action: {
-                print("Read Tapped")
+                self.vm.readButtonClicked()
             }) {
                 Image(systemName: "arrow.down.circle")
                     .resizable()
@@ -302,12 +308,12 @@ struct BottomButtons: View {
             }
             Spacer()
             QrCodeButton(title: "Scan") {
-                print("Scan Tapped")
+                self.vm.scanButtonClicked()
             }
             .padding(.top)
             Spacer()
             Button(action: {
-                print("Write Tapped")
+                self.vm.writeButtonClicked()
             }) {
                 Image(systemName: "arrow.up.circle")
                     .resizable()
