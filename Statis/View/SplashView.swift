@@ -16,7 +16,7 @@ struct SplashView: View {
         VStack {
             if self.isActive {
                 if ((state.user?.isEmailVerified) != nil) {
-                    HomeView(isDrawerOpen: false, state: state)
+                    HomeView(state: state, isDrawerOpen: false )
                 } else {
                     SignInView(state: state)
                 }

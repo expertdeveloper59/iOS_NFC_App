@@ -13,31 +13,50 @@ struct CardParentView: View {
     @State var index = 0
     @State var addNewSocialMediaAccount = false
     @State var buttonTitle = "Next"
+    @State var curValue = ""
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    @ObservedObject var viewModel : AddCardViewModel
+    
+    init(state: AppState) {
+        self.viewModel = AddCardViewModel(appState: state)
+    }
+    
     let questions = [
-        Question(question: "Choose your Username?", TFtitle: "Username", image: "card1"),
-        Question(question: "Password?", TFtitle: "Password", image: "card2"),
-        Question(question: "First name & Last name?", TFtitle: "First name & Last name", image: "card3"),
-        Question(question: "What’s your Email Address?", TFtitle: "Email Address", image: "card3"),
-        Question(question: "Whats you Job Position?", TFtitle: "Job Position", image: "card5"),
-        Question(question: "Where do you work?", TFtitle: "Company", image: "card6"),
-        Question(question: "Whats your website?", TFtitle: "Website", image: "card7"),
-        Question(question: "What is your social media?", TFtitle: "Username 4", image: "card8"),
-        Question(question: "What is your Address?", TFtitle: "Address", image: "card9"),
-        Question(question: "What is your phone number?", TFtitle: "Phone Number", image: "card10"),
-        Question(question: "Do you want to be visible to people near you?", TFtitle: "Visible", image: "card10"),
-        Question(question: "Your Card is ready to go!", TFtitle: "", image: "card11")
+        //Question(question: "Choose your Username?", TFtitle: "Username", image: "card1"),
+        //Question(question: "Password?", TFtitle: "Password", image: "card2"),
+        Question(id: "name", question: "First name & Last name?", TFtitle: "First name & Last name", image: "card3"),
+        Question(id: "email", question: "What’s your Email Address?", TFtitle: "Email Address", image: "card3"),
+        Question(id: "job", question: "Whats you Job Position?", TFtitle: "Job Position", image: "card5"),
+        Question(id: "joblocation", question: "Where do you work?", TFtitle: "Company", image: "card6"),
+        Question(id: "website", question: "Whats your website?", TFtitle: "Website", image: "card7"),
+        //Question(question: "What is your social media?", TFtitle: "Username 4", image: "card8"),
+        Question(id: "address", question: "What is your Address?", TFtitle: "Address", image: "card9"),
+        Question(id: "phone", question: "What is your phone number?", TFtitle: "Phone Number", image: "card10"),
+        Question(id: "visible", question: "Do you want to be visible to people near you?", TFtitle: "Visible", image: "card10"),
+        Question(id: "", question: "Your Card is ready to go!", TFtitle: "", image: "card11")
     ]
     
     var body: some View {
         ZStack {
+            
             VStack(alignment: .center, spacing: 20) {
                 if index < questions.count-1 {
                     ProgressIndicator(screenBounds: UIScreen.main.bounds, divider: $index)
                 }
                 
-                CardContents(questionTitle: questions[index].questionTitle, textFieldTitle: questions[index].textFieldTitle, questionSrNo: index+1, imageName: questions[index].imageName)
+                CardContents(questionTitle: questions[index].questionTitle, textFieldTitle: questions[index].textFieldTitle, questionSrNo: index+1, imageName: questions[index].imageName, curValue: self.$viewModel.curValue)
                     .padding(.horizontal)
                 self.roundedRectCustomButton(title: buttonTitle, backgroundColor: .green, width: screenBounds.width/1.2, height: 55) {
+                    if buttonTitle == "DONE" {
+                        self.viewModel.donePressed(delegate: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        })
+                        //
+                    }else{
+                        self.viewModel.nextPressed(question: questions[index])
+                    }
                     if index < questions.count-1 {
                         index += 1
                         if index == questions.count-1 {
@@ -45,7 +64,7 @@ struct CardParentView: View {
                         }
                     }
                 }
-                if index == 7 {
+                if index == 99 {
                     HStack {
                         Spacer()
                         Button {
@@ -65,10 +84,14 @@ struct CardParentView: View {
                 Spacer()
             }
             .padding(.horizontal)
-            if index != 7 {
+            
+            
+            
+            if index != 99 {
                 CardBackgroundView()
             }
-            if index == 7 && addNewSocialMediaAccount {
+            /*
+            if index == 99 && addNewSocialMediaAccount {
                 VStack {
                     Spacer()
                     VStack {
@@ -90,6 +113,7 @@ struct CardParentView: View {
                 .background(Color.gray.opacity(0.6))
                 .edgesIgnoringSafeArea(.vertical)
             }
+            */
         }
     }
 }
@@ -101,13 +125,14 @@ struct CardContents: View {
     var questionSrNo: Int
     var imageName: String
     var screenBounds = UIScreen.main.bounds
+    @Binding var curValue: String
     
     var body: some View {
         Image(imageName)
             .frame(width: screenBounds.width/1.2, height: screenBounds.height/3, alignment: .center)
             .aspectRatio(contentMode: ContentMode.fit)
         HStack {
-            if questionSrNo == 12 {
+            if questionSrNo == 9 {      //final question index (done)
                 Text("\(questionTitle)")
                     .font(.custom("Poppins-Medium", size: 19))
                     .foregroundColor(Color("CardQuesColor"))
@@ -119,14 +144,14 @@ struct CardContents: View {
             }
         }
         .padding(.vertical)
-        if questionSrNo == 8 {
+        if questionSrNo == 99 {
             VStack {
                 CustomFieldText(name: .constant(""), label: "\(textFieldTitle)")
                 CustomFieldText(name: .constant(""), label: "\(textFieldTitle)")
                 CustomFieldText(name: .constant(""), label: "\(textFieldTitle)")
             }
-        } else if questionSrNo != 12 {
-            CustomFieldText(name: .constant(""), label: "\(textFieldTitle)")
+        } else if questionSrNo != 9 {       //final question index
+            CustomFieldText(name: self.$curValue, label: "\(textFieldTitle)")
         }
         
     }
@@ -173,7 +198,7 @@ struct ProgressIndicator: View {
                     .font(.custom("Poppins-Regular", size: 14))
                     .foregroundColor(Color("AppGreen"))
                 Spacer()
-                Text("\(divider+1)/11")
+                Text("\(divider+1)/9")
                     .font(.custom("Poppins-Regular", size: 14))
                     .foregroundColor(.gray)
                     .opacity(0.4)
@@ -216,3 +241,8 @@ struct Wave: Shape {
     }
 }
 
+struct CardParentView_Previews: PreviewProvider {
+    static var previews: some View {
+        CardParentView(state: AppState())
+    }
+}

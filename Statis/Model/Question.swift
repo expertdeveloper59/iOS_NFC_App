@@ -12,8 +12,10 @@ class Question: ObservableObject {
     @Published var questionTitle: String
     @Published var textFieldTitle: String
     @Published var imageName: String
+    @Published var id: String
     
-    init(question: String, TFtitle: String, image: String) {
+    init(id: String, question: String, TFtitle: String, image: String) {
+        self.id = id
         questionTitle = question
         textFieldTitle = TFtitle
         imageName = image

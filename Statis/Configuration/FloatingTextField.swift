@@ -40,7 +40,7 @@ var body: some View {
                 .font(.custom("Poppins-Regular", size: 18))
                 .autocapitalization(.none)
                 .textContentType(.nickname)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
                 .padding(.bottom, 30)
                 .padding(.top, 5)
                 .onTapGesture {

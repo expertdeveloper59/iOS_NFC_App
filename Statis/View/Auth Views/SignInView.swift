@@ -115,6 +115,7 @@ struct SignInView: View {
                 Alert(title: Text(status.title),
                       message: Text(status.title == "Error" ? "Email or Password is incorrect" : status.message),
                       dismissButton: .default(Text("OK"), action: {
+                        print(status)
                         if status.title == "Successful" {
                             self.homeActive = true
                             self.viewModel.changeProcesssingState()

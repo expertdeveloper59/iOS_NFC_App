@@ -10,15 +10,11 @@ import SwiftUI
 
 struct BusinessCardDetailView: View {
     let screenBounds = UIScreen.main.bounds
-    let items = [
-        ["user", "Full Name", "Alexndar Jole"],
-        ["iconPhone", "Phone", "+9293334040"],
-        ["iconBriefcase", "Work", "Al Street 23 Main"],
-        ["iconMail", "Email Address", "email@inofr.com"],
-        ["iconBuilding", "Company", "Redf Inc."],
-        ["iconGlobe", "Website", "www.tree.com"],
-        ["iconLocation", "Address", "5G Prince Building"]
-    ]
+    var items: [[String]]
+    
+    init(values: [[String]]){
+        self.items = values
+    }
     var body: some View {
         ZStack {
             VStack {
@@ -33,7 +29,7 @@ struct BusinessCardDetailView: View {
                 BusinessCard(width: screenBounds.width/1.2, height: screenBounds.height/6)
                     .padding(.top, screenBounds.height/10)
                 ScrollView(.vertical, showsIndicators: false) {
-                    ForEach(items, id: \.self) { item in
+                    ForEach(self.items, id: \.self) { item in
                         BusinessCardDetailItem(image: item[0], title: item[1], value: item[2], menuColor: Color("CloudyWhite")) {
                             //
                         }
@@ -95,6 +91,6 @@ struct BusinessCardDetailItem: View {
 
 struct BusinessCardDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BusinessCardDetailView()
+        BusinessCardDetailView(values: [[String]]())
     }
 }

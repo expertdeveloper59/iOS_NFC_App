@@ -10,8 +10,17 @@ import SwiftUI
 
 struct HomeView: View {
     @State var isDrawerOpen: Bool = false
+    @State var addPressed: Bool = false
     @ObservedObject var state: AppState
     let screenBounds = UIScreen.main.bounds
+    
+    @ObservedObject var viewModel: HomeViewModel
+    
+    init(state: AppState, isDrawerOpen: Bool = false){
+        self.state = state
+        self.viewModel = HomeViewModel(state: state)
+        self.isDrawerOpen = isDrawerOpen
+    }
     
     var body: some View {
         ZStack {
@@ -24,6 +33,9 @@ struct HomeView: View {
                             Image("left_bar")
                         }
                         .padding(.horizontal)
+                        .sheet(isPresented: self.$addPressed, content: {
+                            CardParentView(state: self.state)
+                        })
                         SearchTextField()
                     }
                     .padding(.horizontal)
@@ -38,7 +50,7 @@ struct HomeView: View {
                     HStack {
                         HStack {
                             Button(action: {
-                                
+                                self.addPressed.toggle()
                             }) {
                                 Image(systemName: "plus")
                                     .foregroundColor(Color("BlackTanText"))
@@ -68,12 +80,16 @@ struct HomeView: View {
                 }
                 Spacer()
                 QrCodeButton(title: "Scan") {
-                    //
+                    self.viewModel.scan()
                 }
                 .padding(.top)
+                .sheet(isPresented: self.$viewModel.shouldPresentCard, content: {
+                    BusinessCardDetailView(values: self.viewModel.values)
+                })
                 Spacer()
                 BottomButtons()
             }.background(Color("CloudyWhite").edgesIgnoringSafeArea(.all))
+            
             
             DrawerView(isOpen: self.$isDrawerOpen, state: self.state)
             
@@ -82,6 +98,8 @@ struct HomeView: View {
         }.background(Color("CloudyWhite").edgesIgnoringSafeArea(.all))
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(true)
+        
+        
     }
 }
 
@@ -276,3 +294,8 @@ extension View {
     }
 }
 
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView(state: AppState())
+    }
+}
