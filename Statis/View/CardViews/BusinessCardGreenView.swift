@@ -44,7 +44,9 @@ struct BusinessCardGreenView: View {
                 
                 Spacer()
                 
-                BusinessCard(width: screenBounds.width/1.4, height: screenBounds.height/6)
+                BusinessCard(width: screenBounds.width/1.4, height: screenBounds.height/6) {
+                    
+                }
                 Spacer()
                 RoundedRectangle(cornerRadius: 14)
                     .fill(Color.white)

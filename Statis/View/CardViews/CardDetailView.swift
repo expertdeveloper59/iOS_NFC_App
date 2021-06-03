@@ -51,7 +51,9 @@ struct CardDetailView: View {
             .padding()
             .background(RoundedRectangle(cornerRadius: 14).fill(Color("CloudyWhite")))
             .padding()
-            BusinessCard(width: screenBouns.width/1.2, height: screenBouns.height/5)
+            BusinessCard(width: screenBouns.width/1.2, height: screenBouns.height/5) {
+                
+            }
             VStack {
                 HomeMenuItem(image: "pencil.and.ellipsis.rectangle", title: "Edit Info", menuColor: Color("CloudyWhite")) {
                     //

@@ -2,11 +2,16 @@
 //  HomeViewModel.swift
 //  Statis
 //
+<<<<<<< HEAD
+//  Created by Farrukh Hameed on 17/03/2021.
+=======
 //  Created by Fateh Khan on 20/05/2021.
+>>>>>>> 6e901dbf27465ca47fc963d7d53fb709b50291ea
 //  Copyright © 2021 iOS App Templates. All rights reserved.
 //
 
 import Foundation
+<<<<<<< HEAD
 import CoreNFC
 
 class HomeViewModel: NSObject, ObservableObject{
@@ -94,6 +99,7 @@ extension HomeViewModel: NFCNDEFReaderSessionDelegate{
     
     
 }
+=======
 
 class HomeViewModel: ObservableObject {
 //    @Published var email: String = ""
@@ -127,3 +133,4 @@ class HomeViewModel: ObservableObject {
     
 }
 
+>>>>>>> 6e901dbf27465ca47fc963d7d53fb709b50291ea

@@ -112,7 +112,9 @@ struct CardHolderView: View {
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     ForEach(1...4, id: \.self) { index in
-                        BusinessCard(width: screenBounds.width/1.2, height: screenBounds.height/5)
+                        BusinessCard(width: screenBounds.width/1.2, height: screenBounds.height/5) {
+                            
+                        }
                     }
                 }
                 

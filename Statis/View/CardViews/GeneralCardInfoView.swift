@@ -34,7 +34,9 @@ struct GeneralCardInfoView: View {
                 .foregroundColor(Color.white)
                 .padding()
                 
-                BusinessCard(width: screenBounds.width/1.2, height: screenBounds.height/5)
+                BusinessCard(width: screenBounds.width/1.2, height: screenBounds.height/5) {
+                    
+                }
                 
                 VStack {
                     HStack {

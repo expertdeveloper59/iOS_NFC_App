@@ -26,7 +26,9 @@ struct BusinessCardDetailView: View {
             }
             
             VStack {
-                BusinessCard(width: screenBounds.width/1.2, height: screenBounds.height/6)
+                BusinessCard(width: screenBounds.width/1.2, height: screenBounds.height/6) {
+                    
+                }
                     .padding(.top, screenBounds.height/10)
                 ScrollView(.vertical, showsIndicators: false) {
                     ForEach(self.items, id: \.self) { item in

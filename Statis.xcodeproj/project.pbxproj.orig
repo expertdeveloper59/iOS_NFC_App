@@ -254,8 +254,12 @@
 				30A39BEC24DF999900EE7E2E /* SignUpViewModel.swift */,
 				F748886725CE75D800799859 /* CardDataViewModel.swift */,
 				30F0AF9724E9868D0084CE6E /* SignInViewModel.swift */,
+<<<<<<< HEAD
 				9BC30BA62601A74E00B6D626 /* AddCardViewModel.swift */,
 				9BC30BA92601C3C700B6D626 /* HomeViewModel.swift */,
+=======
+				F72C956D26569E24000CB64B /* HomeViewModel.swift */,
+>>>>>>> 6e901dbf27465ca47fc963d7d53fb709b50291ea
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

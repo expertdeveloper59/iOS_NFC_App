@@ -34,10 +34,14 @@ struct HomeView: View {
                             Image("left_bar")
                         }
                         .padding(.horizontal)
+<<<<<<< HEAD
                         .sheet(isPresented: self.$addPressed, content: {
                             CardParentView(state: self.state)
                         })
                         SearchTextField()
+=======
+                        SearchTextField(vm: self.homeViewModel)
+>>>>>>> 6e901dbf27465ca47fc963d7d53fb709b50291ea
                     }
                     .padding(.horizontal)
                     Text("Home")
@@ -51,7 +55,11 @@ struct HomeView: View {
                     HStack {
                         HStack {
                             Button(action: {
+<<<<<<< HEAD
                                 self.addPressed.toggle()
+=======
+                                self.homeViewModel.addNewCard()
+>>>>>>> 6e901dbf27465ca47fc963d7d53fb709b50291ea
                             }) {
                                 Image(systemName: "plus")
                                     .foregroundColor(Color("BlackTanText"))
@@ -82,6 +90,7 @@ struct HomeView: View {
                     }
                 }
                 Spacer()
+<<<<<<< HEAD
                 QrCodeButton(title: "Scan") {
                     self.viewModel.scan()
                 }
@@ -89,6 +98,12 @@ struct HomeView: View {
                 .sheet(isPresented: self.$viewModel.shouldPresentCard, content: {
                     BusinessCardDetailView(values: self.viewModel.values)
                 })
+=======
+//                QrCodeButton(title: "Scan") {
+//                    print("Scan Tapped")
+//                }
+//                .padding(.top)
+>>>>>>> 6e901dbf27465ca47fc963d7d53fb709b50291ea
                 Spacer()
                 BottomButtons(vm: self.homeViewModel)
             }.background(Color("CloudyWhite").edgesIgnoringSafeArea(.all))
